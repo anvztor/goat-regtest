@@ -1,0 +1,11 @@
+[submodule "submodule/contracts"]
+	path = submodule/contracts
+	url = https://github.com/goatnetwork/goat-contracts
+[submodule "submodule/goat"]
+	path = submodule/goat
+	url = https://github.com/goatnetwork/goat
+	branch = runtime
+[submodule "submodule/geth"]
+	path = submodule/geth
+	url = https://github.com/goatnetwork/goat-geth
+	branch = goat
