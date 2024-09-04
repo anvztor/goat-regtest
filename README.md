@@ -64,10 +64,9 @@ Add new config file to `submodule/contracts/ignition/regtest.json`
 }
 ```
 
-Create genesis file
+Create eth genesis file
 
 ```
-cd -
 cd submodule/contracts
 rm -rf ignition/deployments
 npm run genesis
@@ -92,7 +91,11 @@ $ ./build/goatd init --home ./data/goat regtest
 Add relayer module genesis
 
 ```
-goatd modgen relayer append --key.tx 027c0437de7e4d21149d8f96265294d055193879696ec2fba0c57f7c171128d83d --key.vote a58045662032b85f75dcc503d622411fb7ef88d89c200155e45dd9c6c02fcdd25dc6d0def64ddc1da74a07e515a577f5176654411068215cae073e37dd8318a4d8f6c851a06def606d9403763c948892e8ce48d13a6114a87fce7b6fa60d12fe --threshold 1 goat1vrrrqdhu7dy70472lmkgr0xt5ueg9kzy26289m --home ./data/goat
+./build/goatd modgen relayer append --home ./data/goat
+--key.tx 027c0437de7e4d21149d8f96265294d055193879696ec2fba0c57f7c171128d83d \
+--key.vote \
+a58045662032b85f75dcc503d622411fb7ef88d89c200155e45dd9c6c02fcdd25dc6d0def64ddc1da74a07e515a577f5176654411068215cae073e37dd8318a4d8f6c851a06def606d9403763c948892e8ce48d13a6114a87fce7b6fa60d12fe \
+--threshold 1 goat1vrrrqdhu7dy70472lmkgr0xt5ueg9kzy26289m
 ```
 
 Add bitcoin module genesis
@@ -102,19 +105,19 @@ $ cd submodule/contracts
 $ npx hardhat btc:getblockhash --height 100 --canonical false
 0x55ca4e4911e45dd373939447ecadb1f5dc306466a6198cc8276e242a4b749b78
 $ cd -
-$ goatd modgen bitcoin --network regtest --deposit-magic-prefix GTT0 --min-deposit 1000000 --pubkey 027c0437de7e4d21149d8f96265294d055193879696ec2fba0c57f7c171128d83d --home ./data/goat 100 55ca4e4911e45dd373939447ecadb1f5dc306466a6198cc8276e242a4b749b78
-```
-
-Add validator
-
-```
-goatd modgen validator --home ./data/goat --pubkey $(jq -r '.pub_key.value' data/goat/config/priv_validator_key.json)
+$ ./build/goatd modgen bitcoin --network regtest --deposit-magic-prefix GTT0 --min-deposit 1000000 --pubkey 027c0437de7e4d21149d8f96265294d055193879696ec2fba0c57f7c171128d83d --home ./data/goat 100 0x55ca4e4911e45dd373939447ecadb1f5dc306466a6198cc8276e242a4b749b78
 ```
 
 Add goat module genesis
 
 ```
-goatd modgen goat ./data/goat/eth.json --home ./data/goat
+./build/goatd modgen goat ./data/goat/eth.json --home ./data/goat
+```
+
+Add validator
+
+```
+./build/goatd modgen validator --home ./data/goat --pubkey $(jq -r '.pub_key.value' data/goat/config/priv_validator_key.json)
 ```
 
 ### Start
@@ -124,5 +127,5 @@ goatd modgen goat ./data/goat/eth.json --home ./data/goat
 ```
 
 ```
-goatd start --home ./data/goat --goat.geth ./data/geth/geth.ipc
+./build/goatd start --home ./data/goat --goat.geth ./data/geth/geth.ipc
 ```
