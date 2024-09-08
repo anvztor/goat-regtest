@@ -4,7 +4,7 @@ set -ex
 
 DIR=$(pwd)
 
-mkdir -p build
+mkdir -p build data/regtest data/goat data/geth
 
 go build -o build ./cmd/...
 

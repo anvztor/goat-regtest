@@ -1,5 +1,5 @@
 #!/bin/sh
 
-docker-composed down
+docker-compose down
 rm -rf build
 rm -rf data/regtest data/goat data/geth
