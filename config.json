@@ -15,16 +15,5 @@
     "address": "bcrt1qjav7664wdt0y8tnx9z558guewnxjr3wllz2s9u",
     "prvkey": "e9ccd0ec6bb77c263dc46c0f81962c0b378a67befe089e90ef81e96a4a4c5bc5",
     "pubkey": "0383560def84048edefe637d0119a4428dd12a42765a118b2bf77984057633c50e"
-  },
-  "validator": {
-    "address": "D5BCBCA09DB26AFC4313D858F4BB88132748D098",
-    "pub_key": {
-      "type": "tendermint/PubKeySecp256k1",
-      "value": "A6NXllCl8SgGB72UQtdbaPZRJNJjpwOX+bYYUt1KaliX"
-    },
-    "priv_key": {
-      "type": "tendermint/PrivKeySecp256k1",
-      "value": "tBK6VNBbZjFcn8aUjndxNtjD7YghTL8OEu4d0Nl28Dc="
-    }
   }
 }

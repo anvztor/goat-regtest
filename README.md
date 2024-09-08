@@ -36,8 +36,7 @@ Create goat geneis
 
 ```sh
 ./build/goatd init --home ./data/goat regtest
-jq -r '.validator' config.json > data/goat/config/priv_validator_key.json
-./build/goatd modgen validator --home ./data/goat --pubkey $(jq -r '.validator.pub_key.value' config.json)
+./build/goatd modgen validator --home ./data/goat --pubkey $(jq -r '.pub_key.value' ./data/goat/config/priv_validator_key.json)
 ./build/goatd modgen relayer append --home ./data/goat --key.tx $(jq -r '.voter.TxPubkey' config.json) --key.vote $(jq -r '.voter.VotePubkey' config.json) $(jq -r '.voter.Address' config.json)
 ./build/goatd modgen goat --home ./data/goat ./data/geth/gen-header.json
 ./build/goatd modgen bitcoin --home ./data/goat --min-deposit 1000000 --pubkey $(jq -r '.relayer.pubkey' config.json)
