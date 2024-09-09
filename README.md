@@ -25,7 +25,7 @@ Create eth genesis
 cp regtest.json submodule/contracts/ignition
 cd submodule/contracts
 rm -rf ignition/deployments
-npm run genesis
+npm run genesis -- --force true
 cp ./ignition/genesis/regtest.json ../../data/geth
 cd -
 ./build/geth init --datadir ./data/geth ./data/geth/regtest.json
