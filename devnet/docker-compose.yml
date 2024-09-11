@@ -44,6 +44,7 @@ services:
       - --goat.geth
       - /geth/geth.ipc
       - --api.enable
+      - --api.address=tcp://0.0.0.0:1317
       - --p2p.persistent_peers
       - 689ce443353b778aea765858f8a0a445ea94ca60@175.41.182.177:26656
     volumes:
