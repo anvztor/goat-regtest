@@ -1,0 +1,147 @@
+{
+  "app_name": "goatd",
+  "app_version": "testnet-20275156ea241828f6711332765ba08264297795",
+  "genesis_time": "2024-09-11T14:25:57.000564Z",
+  "chain_id": "goat-devnet-0",
+  "initial_height": 1,
+  "app_hash": null,
+  "app_state": {
+    "auth": {
+      "params": {
+        "max_memo_characters": "256",
+        "tx_sig_limit": "7",
+        "tx_size_cost_per_byte": "10",
+        "sig_verify_cost_ed25519": "590",
+        "sig_verify_cost_secp256k1": "1000"
+      },
+      "accounts": [
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "goat15n6metclzrm9yd08rw263cyhzj7p28yd0t6j29",
+          "pub_key": {
+            "@type": "/cosmos.crypto.secp256k1.PubKey",
+            "key": "AgineWnKRY00hQ7bi5gKHPHpEkka6X/X89lg+/akiwzs"
+          },
+          "account_number": "0",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "goat1kuedlvdh8hkyrqjnn96c2qhafx6znkrrwpw0mz",
+          "pub_key": {
+            "@type": "/cosmos.crypto.secp256k1.PubKey",
+            "key": "Am7EwXIyvMKps4Tq5x9HTOVnSgr0hf6/w9W6wrzvFKD8"
+          },
+          "account_number": "1",
+          "sequence": "0"
+        }
+      ]
+    },
+    "bank": {
+      "params": {
+        "send_enabled": [],
+        "default_send_enabled": true
+      },
+      "balances": [],
+      "supply": [],
+      "denom_metadata": [],
+      "send_enabled": []
+    },
+    "bitcoin": {
+      "params": {
+        "chain_config": {
+          "network_name": "regtest",
+          "pubkey_hash_addr_prefix": 111,
+          "script_hash_addr_prefix": 196,
+          "bech32_hrp": "bcrt"
+        },
+        "confirmation_number": 1,
+        "min_deposit_amount": "1000000",
+        "deposit_magic_prefix": "R1RUMA=="
+      },
+      "start_block_number": "2904406",
+      "block_hash": ["LmptCx8Obk5dt96Or1UoT8MY0tcqwdeL2ZTmAAAAAAA="],
+      "pubkey": {
+        "secp256k1": "AozQg32UFD6xlP1iXsDtq23r/KGPfwWflxh9F5Vf79Gw"
+      }
+    },
+    "consensus": null,
+    "goat": {
+      "params": {},
+      "eth_block": {
+        "parent_hash": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+        "fee_recipient": "AAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+        "state_root": "/UDbCiSN+3+q6bC/IjVJ2iSRS6Si7XM8WRA701oQf9g=",
+        "receipts_root": "VugfFxvMVab/g0XmksD4bltI4BuZbK3AAWIvteNjtCE=",
+        "logs_bloom": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "prev_randao": "AQ==",
+        "block_number": "0",
+        "gas_limit": "30000000",
+        "gas_used": "0",
+        "timestamp": "1726064439",
+        "extra_data": "AFboHxcbzFWm/4NF5pLA+G5bSOAbmWytwAFiL7XjY7Qh",
+        "base_fee_per_gas": "Hc1lAA==",
+        "block_hash": "453VLzd4gvIRRDWTC3pBU4R3bPZ0t6I0uA6PZd0u96M=",
+        "transactions": [],
+        "beacon_root": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+        "blob_gas_used": "0",
+        "excess_blob_gas": "0",
+        "gas_revenue": {
+          "amount": "0"
+        },
+        "add_voter_req": [],
+        "rm_voter_req": [],
+        "withdrawal_req": [],
+        "rbf_req": [],
+        "cancel1_req": []
+      }
+    },
+    "locking": {
+      "params": {},
+      "validators": [
+        {
+          "pubkey": "AgineWnKRY00hQ7bi5gKHPHpEkka6X/X89lg+/akiwzs",
+          "power": "10000"
+        }
+      ]
+    },
+    "relayer": {
+      "params": {
+        "electing_period": "600s",
+        "accept_proposer_timeout": "0s"
+      },
+      "epoch": "0",
+      "sequence": "0",
+      "voters": {
+        "goat1kuedlvdh8hkyrqjnn96c2qhafx6znkrrwpw0mz": {
+          "vote_key": "rOWnmDI/SmEAujQ+c7nlCxKs76Oc4n42kleztJf/oAG6LJ0O1sJVQaV0dB9bwUcQCmGIWJJpZIRwfkSx3S4NLIohvHb0qwU9tGdN6oMPkzWClITHKcgXmkarYVzxDMUJ",
+          "status": "VOTER_STATUS_ACTIVATED",
+          "height": "0"
+        }
+      }
+    },
+    "runtime": null
+  },
+  "consensus": {
+    "params": {
+      "block": {
+        "max_bytes": "6348800",
+        "max_gas": "-1"
+      },
+      "evidence": {
+        "max_age_num_blocks": "100000",
+        "max_age_duration": "172800000000000",
+        "max_bytes": "1048576"
+      },
+      "validator": {
+        "pub_key_types": ["secp256k1"]
+      },
+      "version": {
+        "app": "0"
+      },
+      "abci": {
+        "vote_extensions_enable_height": "0"
+      }
+    }
+  }
+}
