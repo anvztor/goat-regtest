@@ -22,7 +22,7 @@ services:
       - --gcmode=archive
       - --history.transactions=0
       - --history.state=0
-      - --bootnodes=enode://e792859322d1712fd0d0d78e861b35d459e44426f85245911c58b759112c261be69fc7ff4eb7096d9702589b125174a27a6cdd97de55e36d88d2b5f4982df82b@175.41.182.177:30303
+      - --bootnodes=enode://ffd38ce80d3e6b45f0ce5a78709a73d16a0d71eb331632d74be3b50c1521ee3802eb6fc7b1d65c68e281e97c8803503a753867cdafb353f28c022a0845266bd7@175.41.182.177:30303
     volumes:
       - /data/geth:/root/.ethereum
     logging:
@@ -46,7 +46,7 @@ services:
       - --api.enable
       - --api.address=tcp://0.0.0.0:1317
       - --p2p.persistent_peers
-      - 689ce443353b778aea765858f8a0a445ea94ca60@175.41.182.177:26656
+      - 10732865500c75b9b51cd7ca6fb0155673e835a5@175.41.182.177:26656
     volumes:
       - /data/goat:/goat
       - /data/geth:/geth
