@@ -14,7 +14,7 @@
 ```
 git clone --recurse-submodules https://github.com/GOATNetwork/goat-regtest.git
 cd goat-regtest
-./init.sh
+make init
 ```
 
 ### Create genesis
@@ -29,7 +29,6 @@ npm run genesis -- --force true
 cp ./ignition/genesis/regtest.json ../../data/geth
 cd -
 ./build/geth init --datadir ./data/geth ./data/geth/regtest.json
-./build/genesis -genesis ./data/geth/regtest.json > ./data/geth/gen-header.json
 ```
 
 Create goat geneis
@@ -38,7 +37,7 @@ Create goat geneis
 ./build/goatd init --home ./data/goat regtest
 ./build/goatd modgen validator --home ./data/goat --pubkey $(jq -r '.pub_key.value' ./data/goat/config/priv_validator_key.json)
 ./build/goatd modgen relayer append --home ./data/goat --key.tx $(jq -r '.voter.TxPubkey' config.json) --key.vote $(jq -r '.voter.VotePubkey' config.json) $(jq -r '.voter.Address' config.json)
-./build/goatd modgen goat --home ./data/goat ./data/geth/gen-header.json
+./build/goatd modgen goat --home ./data/goat ./data/geth/regtest.json
 ./build/goatd modgen bitcoin --home ./data/goat --min-deposit 1000000 --pubkey $(jq -r '.relayer.pubkey' config.json)
 ```
 
@@ -52,5 +51,5 @@ Create goat geneis
 ### Cleanup
 
 ```sh
-./reset.sh
+make clean
 ```

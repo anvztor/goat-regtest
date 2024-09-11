@@ -1,9 +1,0 @@
-name: bitcoin
-
-services:
-  node:
-    image: ghcr.io/islishude/bitcoin:${VERSION:-latest}
-    volumes:
-      - ./data:/root/.bitcoin
-    ports:
-      - 8332:8332
