@@ -1,8 +1,8 @@
 {
   "app_name": "goatd",
   "app_version": "testnet-20275156ea241828f6711332765ba08264297795",
-  "genesis_time": "2024-09-11T14:25:57.000564Z",
-  "chain_id": "goat-devnet-0",
+  "genesis_time": "2024-09-12T02:15:27.738916Z",
+  "chain_id": "goat-devnet-1",
   "initial_height": 1,
   "app_hash": null,
   "app_state": {
@@ -17,10 +17,10 @@
       "accounts": [
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "goat15n6metclzrm9yd08rw263cyhzj7p28yd0t6j29",
+          "address": "goat1zk6n8xdg0rljz8u6r6u5k0sh7xrlgcfy9dg47l",
           "pub_key": {
             "@type": "/cosmos.crypto.secp256k1.PubKey",
-            "key": "AgineWnKRY00hQ7bi5gKHPHpEkka6X/X89lg+/akiwzs"
+            "key": "AupC0VvyhArt1DPiiL5DBMXtxY7c7l28FWcAF7LtmzBJ"
           },
           "account_number": "0",
           "sequence": "0"
@@ -50,14 +50,14 @@
     "bitcoin": {
       "params": {
         "chain_config": {
-          "network_name": "regtest",
+          "network_name": "testnet3",
           "pubkey_hash_addr_prefix": 111,
           "script_hash_addr_prefix": 196,
-          "bech32_hrp": "bcrt"
+          "bech32_hrp": "tb"
         },
         "confirmation_number": 1,
         "min_deposit_amount": "1000000",
-        "deposit_magic_prefix": "R1RUMA=="
+        "deposit_magic_prefix": "R1RWMQ=="
       },
       "start_block_number": "2904406",
       "block_hash": ["LmptCx8Obk5dt96Or1UoT8MY0tcqwdeL2ZTmAAAAAAA="],
@@ -100,7 +100,7 @@
       "params": {},
       "validators": [
         {
-          "pubkey": "AgineWnKRY00hQ7bi5gKHPHpEkka6X/X89lg+/akiwzs",
+          "pubkey": "AupC0VvyhArt1DPiiL5DBMXtxY7c7l28FWcAF7LtmzBJ",
           "power": "10000"
         }
       ]
