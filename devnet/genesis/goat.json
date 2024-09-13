@@ -1,8 +1,8 @@
 {
   "app_name": "goatd",
-  "app_version": "testnet-20275156ea241828f6711332765ba08264297795",
-  "genesis_time": "2024-09-12T02:15:27.738916Z",
-  "chain_id": "goat-devnet-2",
+  "app_version": "testnet-9bd38cab0e180521a3a019bac358bd07aa5d6458",
+  "genesis_time": "2024-09-13T10:57:48.199583Z",
+  "chain_id": "goat-devnet-0",
   "initial_height": 1,
   "app_hash": null,
   "app_state": {
@@ -59,11 +59,22 @@
         "min_deposit_amount": "1000000",
         "deposit_magic_prefix": "R1RWMQ=="
       },
-      "start_block_number": "2904406",
-      "block_hash": ["LmptCx8Obk5dt96Or1UoT8MY0tcqwdeL2ZTmAAAAAAA="],
+      "block_tip": "2904406",
+      "block_hashes": {
+        "2904406": "LmptCx8Obk5dt96Or1UoT8MY0tcqwdeL2ZTmAAAAAAA="
+      },
+      "eth_tx_nonce": "0",
       "pubkey": {
         "secp256k1": "AozQg32UFD6xlP1iXsDtq23r/KGPfwWflxh9F5Vf79Gw"
-      }
+      },
+      "queue": {
+        "block_number": "2904406",
+        "deposits": [],
+        "paid_withdrawals": [],
+        "rejected_withdrawals": []
+      },
+      "deposits": [],
+      "withdrawals": []
     },
     "consensus": null,
     "goat": {
@@ -94,14 +105,15 @@
         "withdrawal_req": [],
         "rbf_req": [],
         "cancel1_req": []
-      }
+      },
+      "beacon_root": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
     },
     "locking": {
       "params": {},
       "validators": [
         {
           "pubkey": "AupC0VvyhArt1DPiiL5DBMXtxY7c7l28FWcAF7LtmzBJ",
-          "power": "10000"
+          "power": "1"
         }
       ]
     },
@@ -110,7 +122,13 @@
         "electing_period": "600s",
         "accept_proposer_timeout": "0s"
       },
-      "epoch": "0",
+      "relayer": {
+        "epoch": "0",
+        "proposer": "goat1kuedlvdh8hkyrqjnn96c2qhafx6znkrrwpw0mz",
+        "voters": [],
+        "last_elected": "2024-09-13T10:57:57.763019Z",
+        "proposer_accepted": true
+      },
       "sequence": "0",
       "voters": {
         "goat1kuedlvdh8hkyrqjnn96c2qhafx6znkrrwpw0mz": {
@@ -118,7 +136,13 @@
           "status": "VOTER_STATUS_ACTIVATED",
           "height": "0"
         }
-      }
+      },
+      "pubkeys": [
+        {
+          "secp256k1": "AozQg32UFD6xlP1iXsDtq23r/KGPfwWflxh9F5Vf79Gw"
+        }
+      ],
+      "randao": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
     },
     "runtime": null
   },

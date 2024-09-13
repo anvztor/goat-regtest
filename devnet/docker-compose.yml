@@ -14,14 +14,11 @@ services:
       retries: 5
     command:
       - --http
-      - --http.api=eth,net,web3,debug
+      - --http.api=eth,net,web3
       - --http.addr=0.0.0.0
       - --http.vhosts=*
       - --http.corsdomain=*
       - --syncmode=full
-      - --gcmode=archive
-      - --history.transactions=0
-      - --history.state=0
       - --bootnodes=enode://ffd38ce80d3e6b45f0ce5a78709a73d16a0d71eb331632d74be3b50c1521ee3802eb6fc7b1d65c68e281e97c8803503a753867cdafb353f28c022a0845266bd7@175.41.182.177:30303
     volumes:
       - /data/geth:/root/.ethereum
