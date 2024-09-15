@@ -7,8 +7,8 @@ goat:
 
 geth:
 	mkdir -p build data/geth
-	make -C submodule/goat build
-	cp submodule/goat/build/goatd build
+	make -C submodule/geth geth
+	cp submodule/geth/build/bin/geth build
 
 contracts:
 	npm ci --prefix submodule/contracts
