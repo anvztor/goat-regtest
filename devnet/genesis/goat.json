@@ -1,8 +1,8 @@
 {
   "app_name": "goatd",
   "app_version": "testnet-9bd38cab0e180521a3a019bac358bd07aa5d6458",
-  "genesis_time": "2024-09-13T10:57:48.199583Z",
-  "chain_id": "goat-devnet-0",
+  "genesis_time": "2024-09-18T10:57:48.199583Z",
+  "chain_id": "goat-devnet-1",
   "initial_height": 1,
   "app_hash": null,
   "app_state": {
