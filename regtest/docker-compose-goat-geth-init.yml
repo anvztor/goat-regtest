@@ -1,23 +1,42 @@
 name: goat-regtest-genesis
 
 services:
-  geth:
+  geth-1:
     image: anvztor/geth:latest
     pull_policy: always
     command:
       - init
-      - --cache.preimages=true
       - /genesis/geth.json
     volumes:
-      - /data/geth:/root/.ethereum
+      - ./data/geth-1:/root/.ethereum
       - ./genesis:/genesis
 
-  goat:
+  geth-2:
+    image: anvztor/geth:latest
+    pull_policy: always
+    command:
+      - init
+      - /genesis/geth.json
+    volumes:
+      - ./data/geth-2:/root/.ethereum
+      - ./genesis:/genesis
+
+  goat-1:
     image: anvztor/goat:latest
     pull_policy: always
     entrypoint: ["sh", "-c"]
     command:
-      - "goatd init --home /goat devnet && cp /genesis/goat.json /goat/config/genesis.json"
+      - "goatd init --home /goat regtest && cp /genesis/goat.json /goat/config/genesis.json"
     volumes:
-      - /data/goat:/goat
+      - ./data/goat-1:/goat
+      - ./genesis:/genesis
+
+  goat-2:
+    image: anvztor/goat:latest
+    pull_policy: always
+    entrypoint: ["sh", "-c"]
+    command:
+      - "goatd init --home /goat regtest && cp /genesis/goat.json /goat/config/genesis.json"
+    volumes:
+      - ./data/goat-2:/goat
       - ./genesis:/genesis

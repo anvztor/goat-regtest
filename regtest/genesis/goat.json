@@ -1,7 +1,7 @@
 {
   "app_name": "goatd",
-  "app_version": "HEAD-61c78057c5de8b5f00c1ce751ca870927aa32951",
-  "genesis_time": "2024-09-29T12:28:19.888478Z",
+  "app_version": "HEAD-fbc9ce448cc72a936137edbc34fdd826a1e27ee1",
+  "genesis_time": "2024-09-29T18:40:29.028676Z",
   "chain_id": "goat",
   "initial_height": 1,
   "app_hash": null,
@@ -17,10 +17,10 @@
       "accounts": [
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "goat1jel9mv045enfy2zqtz9atkspjpxuw64hchsseu",
+          "address": "goat1p3f2f9qe62kpupqpur44fklhs2tt6xtwmsfa7m",
           "pub_key": {
             "@type": "/cosmos.crypto.secp256k1.PubKey",
-            "key": "A5BfNuOQGpQ0mcE/qvY8exp2XHGslhehuDufMhiSTpV8"
+            "key": "ApzKvYYWrV9ZSlH3Ql/j8XU8SaUVP4XvegPreZfPqUuf"
           },
           "account_number": "0",
           "sequence": "0"
@@ -109,10 +109,10 @@
         "block_number": "0",
         "gas_limit": "30000000",
         "gas_used": "0",
-        "timestamp": "1727600842",
+        "timestamp": "1727635226",
         "extra_data": "AFboHxcbzFWm/4NF5pLA+G5bSOAbmWytwAFiL7XjY7Qh",
         "base_fee_per_gas": "Hc1lAA==",
-        "block_hash": "mTzHYA+QhV0pHxTiZw46YYNsDG26yDPlrvD8orhfXno=",
+        "block_hash": "jN36QUuzDfsY40Ozy0gYmCBRMDqtw+r3fi4XZszqcz8=",
         "transactions": [],
         "beacon_root": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
         "blob_gas_used": "0",
@@ -132,7 +132,7 @@
       "params": {},
       "validators": [
         {
-          "pubkey": "A5BfNuOQGpQ0mcE/qvY8exp2XHGslhehuDufMhiSTpV8",
+          "pubkey": "ApzKvYYWrV9ZSlH3Ql/j8XU8SaUVP4XvegPreZfPqUuf",
           "power": "1"
         }
       ]
@@ -149,7 +149,7 @@
           "goat1un2gptrl4ecx6v9hwjjz7yw5xf7yyvt6zehxvl",
           "goat1vrrrqdhu7dy70472lmkgr0xt5ueg9kzy26289m"
         ],
-        "last_elected": "2024-09-29T12:28:19.992622Z",
+        "last_elected": "2024-09-29T18:40:29.114678Z",
         "proposer_accepted": true
       },
       "sequence": "0",
