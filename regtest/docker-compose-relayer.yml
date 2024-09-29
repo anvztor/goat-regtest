@@ -1,7 +1,7 @@
 services:
   goat-relayer-1:
     build: .
-    image: goatnetwork/goat-relayer:latest
+    image: anvztor/relayer:latest
     container_name: goat-relayer-1
     env_file:
       - .env
@@ -16,7 +16,7 @@ services:
         ipv4_address: 192.168.10.2
 
   goat-relayer-2:
-    image: goatnetwork/goat-relayer:latest
+    image: anvztor/relayer:latest
     container_name: goat-relayer-2
     env_file:
       - .env

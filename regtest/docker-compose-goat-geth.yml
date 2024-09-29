@@ -2,7 +2,7 @@ name: goat-regtest
 
 services:
   geth:
-    image: ghcr.io/goatnetwork/goat-geth:testnet
+    image: anvztor/geth:latest
     pull_policy: always
     stop_grace_period: 30s
     network_mode: host
@@ -14,12 +14,15 @@ services:
       retries: 5
     command:
       - --http
-      - --http.api=eth,net,web3
+      - --http.port=8545
+      - --http.api=eth,net,web3,personal
       - --http.addr=0.0.0.0
       - --http.vhosts=*
       - --http.corsdomain=*
       - --syncmode=full
-      - --bootnodes=enode://ffd38ce80d3e6b45f0ce5a78709a73d16a0d71eb331632d74be3b50c1521ee3802eb6fc7b1d65c68e281e97c8803503a753867cdafb353f28c022a0845266bd7@175.41.182.177:30303
+      - --rpc.enabledeprecatedpersonal
+      - --allow-insecure-unlock
+      - --nodiscover
     volumes:
       - /data/geth:/root/.ethereum
     logging:
@@ -29,7 +32,7 @@ services:
         max-file: "10"
 
   goat:
-    image: ghcr.io/goatnetwork/goat:testnet
+    image: anvztor/goat:latest
     pull_policy: always
     stop_grace_period: 30s
     network_mode: host
@@ -41,8 +44,6 @@ services:
       - /geth/geth.ipc
       - --api.enable
       - --api.address=tcp://0.0.0.0:1317
-      - --p2p.persistent_peers
-      - 10732865500c75b9b51cd7ca6fb0155673e835a5@175.41.182.177:26656
     volumes:
       - /data/goat:/goat
       - /data/geth:/geth

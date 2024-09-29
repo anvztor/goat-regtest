@@ -2,7 +2,7 @@ name: goat-regtest-genesis
 
 services:
   geth:
-    image: ghcr.io/goatnetwork/goat-geth:testnet
+    image: anvztor/geth:latest
     pull_policy: always
     command:
       - init
@@ -13,7 +13,7 @@ services:
       - ./genesis:/genesis
 
   goat:
-    image: ghcr.io/goatnetwork/goat:testnet
+    image: anvztor/goat:latest
     pull_policy: always
     entrypoint: ["sh", "-c"]
     command:
