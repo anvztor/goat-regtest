@@ -1,0 +1,22 @@
+name: bitcoin-regtest
+
+services:
+  node:
+    image: ruimarinho/bitcoin-core:${VERSION:-latest}
+    container_name: bitcoin-regtest
+    volumes:
+      - ./data/bitcoin:/home/bitcoin/.bitcoin
+    ports:
+      - 8332:18443
+      - 18444:18444
+    command:
+      - -regtest=1
+      - -rpcbind=0.0.0.0
+      - -rpcallowip=0.0.0.0/0
+      - -txindex=1
+      - -reindex=1
+      - -fallbackfee=0.01
+      - -rpcuser=test
+      - -rpcpassword=test
+      - -discover=0
+      - -server=1
