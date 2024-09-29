@@ -8,7 +8,7 @@ docker exec -it bitcoin-regtest /bin/bash
 
 ## Generate Deposits
 ```
-# load wallet
+# Load wallet
 bitcoin-wallet -regtest -wallet=demo create
 mkdir -p /home/bitcoin/.bitcoin/regtest/wallets/demo/
 cp /root/.bitcoin/regtest/wallets/demo/wallet.dat /home/bitcoin/.bitcoin/regtest/wallets/demo/wallet.dat
