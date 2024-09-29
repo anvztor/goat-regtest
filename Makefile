@@ -1,5 +1,5 @@
 init: goat geth contracts
-images: goat-image geth-image relayer-image
+images: docker-goat docker-geth docker-relayer
 
 goat:
 	mkdir -p build data/goat
@@ -11,13 +11,13 @@ geth:
 	make -C submodule/geth geth
 	cp submodule/geth/build/bin/geth build
 
-goat-image:
+docker-goat:
 	make -C submodule/goat docker-build-all
 
-geth-image:
+docker-geth:
 	make -C submodule/geth docker-build-all
 
-relayer-image:
+docker-relayer:
 	make -C submodule/relayer docker-build-all
 
 contracts:
