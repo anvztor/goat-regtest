@@ -10,3 +10,6 @@
 	path = submodule/geth
 	url = https://github.com/goatnetwork/goat-geth
 	branch = testnet
+[submodule "submodule/relayer"]
+	path = submodule/relayer
+	url = https://github.com/GOATNetwork/goat-relayer.git
