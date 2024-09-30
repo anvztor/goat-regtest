@@ -18,3 +18,5 @@ cd -
 ./build/goatd modgen relayer append --home ./data/goat --key.tx $(jq -r '.voterc.TxPubkey' config.json) --key.vote $(jq -r '.voterc.VotePubkey' config.json) $(jq -r '.voterc.Address' config.json)
 ./build/goatd modgen goat --home ./data/goat ./data/geth/regtest.json
 ./build/goatd modgen bitcoin --home ./data/goat --min-deposit 1000000 --pubkey $(jq -r '.relayer.pubkey' config.json)
+
+cp -rf ./data ./regtest/data

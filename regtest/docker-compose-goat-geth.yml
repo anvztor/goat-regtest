@@ -1,9 +1,9 @@
 name: goat-regtest
 
 services:
-  geth-1:
+  geth:
     image: anvztor/geth:latest
-    container_name: goat-regtest-geth-1
+    container_name: geth-1
     pull_policy: always
     stop_grace_period: 30s
     restart: unless-stopped
@@ -14,61 +14,22 @@ services:
       retries: 5
     command:
       - --http
-      - --http.port=8545
       - --http.api=eth,net,web3
       - --http.addr=0.0.0.0
       - --http.vhosts=*
       - --http.corsdomain=*
-      - --authrpc.port=8551
       - --syncmode=full
-      - --port=30303
+    ports:
+      - 8545:8545
+      - 8551:8551
+      - 30303:30303
     volumes:
-      - ./data/geth-1:/root/.ethereum
-    logging:
-      driver: json-file
-      options:
-        max-size: "50m"
-        max-file: "10"
-    networks:
-      goat-network:
-        ipv4_address: 192.168.10.2
+      - ./data/geth:/root/.ethereum
 
-  geth-2:
-    image: anvztor/geth:latest
-    container_name: goat-regtest-geth-2
-    pull_policy: always
-    stop_grace_period: 30s
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD-SHELL", "geth attach --exec eth.blockNumber"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
-    command:
-      - --http
-      - --http.port=8645
-      - --http.api=eth,net,web3
-      - --http.addr=0.0.0.0
-      - --http.vhosts=*
-      - --http.corsdomain=*
-      - --authrpc.port=8651
-      - --syncmode=full
-      - --port=31303
-      - --bootnodes=enode://30ba54bbd9e329f3ed8979d31037432ddad4e073dfd1c994fbd6c52ff9fcf99f05e451dc282ac5d78adf2e90c7b7d553b6eb96d7ecb55afdbe0e9021a1e2ef3e@192.168.10.2:30303
-    volumes:
-      - ./data/geth-2:/root/.ethereum
-    logging:
-      driver: json-file
-      options:
-        max-size: "50m"
-        max-file: "10"
-    networks:
-      goat-network:
-        ipv4_address: 192.168.10.3
-
-  goat-1:
+  goat:
     image: anvztor/goat:latest
-    pull_policy: always
+    container_name: goat-1
+    pull_policy: if_not_present
     stop_grace_period: 30s
     restart: unless-stopped
     command:
@@ -81,53 +42,8 @@ services:
       - --rpc.laddr=tcp://0.0.0.0:26657
       - --p2p.laddr=tcp://0.0.0.0:26656
     volumes:
-      - ./data/goat-1:/goat
-      - ./data/geth-1:/geth
+      - ./data/goat:/goat
+      - ./data/geth:/geth
     depends_on:
-      geth-1:
+      geth:
         condition: service_healthy
-    logging:
-      driver: json-file
-      options:
-        max-size: "50m"
-        max-file: "10"
-    networks:
-      goat-network:
-        ipv4_address: 192.168.10.4
-
-  goat-2:
-    image: anvztor/goat:latest
-    pull_policy: always
-    stop_grace_period: 30s
-    restart: unless-stopped
-    command:
-      - --home
-      - /goat
-      - --goat.geth
-      - /geth/geth.ipc
-      - --api.enable
-      - --api.address=tcp://0.0.0.0:1417
-      - --rpc.laddr=tcp://0.0.0.0:27657
-      - --p2p.laddr=tcp://0.0.0.0:27656
-      - --p2p.persistent_peers=99fd4edfc19578da32b9c80829c4f807ff460162@192.168.10.4:26656
-    volumes:
-      - ./data/goat-2:/goat
-      - ./data/geth-2:/geth
-    depends_on:
-      geth-2:
-        condition: service_healthy
-    logging:
-      driver: json-file
-      options:
-        max-size: "50m"
-        max-file: "10"
-    networks:
-      goat-network:
-        ipv4_address: 192.168.10.5
-
-networks:
-  goat-network:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 192.168.10.0/24
