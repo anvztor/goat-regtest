@@ -14,7 +14,7 @@ services:
       REG_TEST_HOST: "bitcoin-regtest"
       REG_TEST_USER_NAME: "test"
       REG_TEST_PASS_WORD: "test"
-      GRAPH_BRIDGE_URL: "http://subgraph-goat:8000/subgraphs/name/Bridge"
+      GRAPH_BRIDGE_URL: "http://goat-regtest-graph-node:8000/subgraphs/name/Bridge"
     depends_on:
       mysql:
         condition: service_healthy

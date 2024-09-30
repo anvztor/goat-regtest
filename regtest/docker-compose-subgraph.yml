@@ -3,6 +3,7 @@ version: '3'
 services:
   graph-node:
     image: graphprotocol/graph-node
+    container_name: goat-regtest-graph-node
     networks:
       - goat-network
     ports:
