@@ -1,0 +1,71 @@
+version: '3'
+
+services:
+  engine-api-dev:
+    image: goatnetwork/engine-api-dev:0.1.2
+    container_name: engine-api-dev
+    ports:
+      - "3001:3001"
+    environment:
+      PORT: 3001
+      DATABASE_URL: "mysql://root:123456@mysql-goat:3306/engine"
+      GRPC_URL: "goat-relayer-1:50051"
+      REG_TEST_PORT: 8332
+      REG_TEST_HOST: "bitcoin-regtest"
+      REG_TEST_USER_NAME: "test"
+      REG_TEST_PASS_WORD: "test"
+      GRAPH_BRIDGE_URL: "http://subgraph-goat:8000/subgraphs/name/Bridge"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - goat-network
+
+  engine-dev:
+    image: goatnetwork/engine-dev:0.1.1
+    container_name: engine-dev
+    environment:
+      FETCH_BASE_URL: "http://localhost:3001/api"
+    ports:
+      - "3000:3000"
+    networks:
+      - goat-network
+
+  unisat-server-proxy:
+    image: goatnetwork/unisat-server-proxy:0.1
+    container_name: unisat-server-proxy
+    ports:
+      - "3009:3009"
+    environment:
+      HTTP_PORT: 3009
+      BITCOIN_PORT: 8332
+      BITCOIN_HOST: "bitcoin-regtest"
+      BITCOIN_USERNAME: "test"
+      BITCOIN_PASSWORD: "test"
+    networks:
+      - goat-network
+
+  mysql:
+    image: mysql:5.7
+    container_name: mysql-goat
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "123456"
+      MYSQL_DATABASE: "engine"
+      MYSQL_USER: "engine"
+      MYSQL_PASSWORD: "123456"
+    ports:
+      - "3306:3306"
+    networks:
+      - goat-network
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  goat-network:
+    driver: bridge
+
+
