@@ -3,7 +3,7 @@ name: goat-regtest
 services:
   geth:
     image: anvztor/geth:latest
-    container_name: goat-regtest-geth-1
+    container_name: goat-regtest-geth-node
     pull_policy: if_not_present
     stop_grace_period: 30s
     restart: unless-stopped
@@ -28,7 +28,7 @@ services:
 
   goat:
     image: anvztor/goat:latest
-    container_name: goat-regtest-goat-1
+    container_name: goat-regtest-goat-node
     pull_policy: if_not_present
     stop_grace_period: 30s
     restart: unless-stopped
