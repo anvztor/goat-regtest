@@ -8,17 +8,6 @@ docker exec -it bitcoin-regtest /bin/bash
 
 ## Generate Deposits
 ```
-# Load wallet
-bitcoin-wallet -regtest -wallet=demo create
-mkdir -p /home/bitcoin/.bitcoin/regtest/wallets/demo/
-cp /root/.bitcoin/regtest/wallets/demo/wallet.dat /home/bitcoin/.bitcoin/regtest/wallets/demo/wallet.dat
-cd /home/bitcoin/.bitcoin/regtest/wallets/
-chmod 777 -R demo/
-bitcoin-cli -regtest -rpcuser=test -rpcpassword=test loadwallet demo
-
-# Generate 101 blocks to get miner reward
-bitcoin-cli -regtest -rpcuser=test -rpcpassword=test -generate 101
-
 # Make deposits (e.g. 1 btc to evmAddress 0x70997970C51812dc3A010C7d01b50e0d17dc79C8)
 ## V0: Send btc to p2wsh address bcrt1q8kqj8j03apl542ftnqdc8hwrge6tyymwnd0sr7f0e57mxwpjl2eqadm5rh
 bitcoin-cli -regtest -rpcuser=test -rpcpassword=test sendtoaddress bcrt1q8kqj8j03apl542ftnqdc8hwrge6tyymwnd0sr7f0e57mxwpjl2eqadm5rh 1
@@ -29,9 +18,6 @@ bitcoin-cli -regtest -rpcuser=test -rpcpassword=test getrawtransaction 5a5b2bf8b
 bitcoin-cli -regtest -rpcuser=test -rpcpassword=test sendtoaddress bcrt1qjav7664wdt0y8tnx9z558guewnxjr3wllz2s9u 1
 bitcoin-cli -regtest -rpcuser=test -rpcpassword=test getrawtransaction d8fcc7e201f5b7766d5c50eadc799e3a474035dd46ca33aa8c6635f0367c3d0a
 bitcoin-cli -regtest -rpcuser=test -rpcpassword=test decoderawtransaction 02000000000101d2989b2f70d0f4a1455e4e87d7b3ac3dc8eaeef89620aca685d4b1bff82b5b5a0100000000fdffffff02a8af151e01000000160014f0530796e40f8fc8b482c213506688dc7ae263a500e1f5050000000016001458dc254a66e5dd3f718b6f7b42aabb5841b569f9014021e301735978dd2b007d14f40076b374acda5e5578c3c2c1933dbd34b19ef6e143f5ca855c2e9f977918db74687b06cc610dc45568fc3a40b0e2fc9054e7e4e265000000
-
-# Generate a block to make tx confirmed
-bitcoin-cli -regtest -rpcuser=test -rpcpassword=test -generate 1
 ```
 
 # Relayer-regtest

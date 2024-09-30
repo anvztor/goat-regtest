@@ -1,7 +1,7 @@
 name: bitcoin-regtest
 
 services:
-  node:
+  bitcoin-core:
     image: ruimarinho/bitcoin-core:${VERSION:-latest}
     container_name: bitcoin-regtest
     volumes:
@@ -9,14 +9,27 @@ services:
     ports:
       - 8332:18443
       - 18444:18444
+    entrypoint: ["/bin/sh", "-c"]
     command:
-      - -regtest=1
-      - -rpcbind=0.0.0.0
-      - -rpcallowip=0.0.0.0/0
-      - -txindex=1
-      - -reindex=1
-      - -fallbackfee=0.01
-      - -rpcuser=test
-      - -rpcpassword=test
-      - -discover=0
-      - -server=1
+      - |
+        bitcoind -regtest -daemon -regtest=1 -rpcbind=0.0.0.0 -rpcallowip=0.0.0.0/0 -txindex=1 -reindex=1 -fallbackfee=0.01 -rpcuser=test -rpcpassword=test -discover=0 -server=1
+        sleep 10
+
+        # Load wallet
+        bitcoin-wallet -regtest -wallet=demo create
+        mkdir -p /home/bitcoin/.bitcoin/regtest/wallets/demo/
+        cp /root/.bitcoin/regtest/wallets/demo/wallet.dat /home/bitcoin/.bitcoin/regtest/wallets/demo/wallet.dat
+        cd /home/bitcoin/.bitcoin/regtest/wallets/
+        chmod 777 -R demo/
+        bitcoin-cli -regtest -rpcuser=test -rpcpassword=test loadwallet demo
+        
+        # Generate 101 blocks to get miner reward
+        bitcoin-cli -regtest -rpcuser=test -rpcpassword=test -generate 101
+
+        # Generate 1 block every 2 minutes by default, modify the interval as needed
+        while true; do
+          bitcoin-cli -regtest -rpcuser=test -rpcpassword=test -generate 1
+          sleep 120
+        done
+
+        tail -f /dev/null
