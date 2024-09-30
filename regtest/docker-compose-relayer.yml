@@ -1,40 +1,70 @@
+version: '3'
+
 services:
   goat-relayer-1:
     build: .
-    image: anvztor/relayer:latest
+    image: goatnetwork/goat-relayer:latest
     container_name: goat-relayer-1
     env_file:
       - .env
     ports:
       - "8080:8080"
-      - "50051:50051"
+      - "9091:9091"
       - "4001:4001"
     volumes:
       - ./data/db:/app/db
     networks:
-      goat-network:
-        ipv4_address: 192.168.10.2
+      goat_network:
+        ipv4_address: 192.168.1.2
 
   goat-relayer-2:
-    image: anvztor/relayer:latest
+    image: goatnetwork/goat-relayer:latest
+    depends_on:
+      goat-relayer-1:
+        condition: service_started
     container_name: goat-relayer-2
     env_file:
       - .env
     environment:
-      - LIBP2P_BOOT_NODES=/ip4/192.168.10.2/tcp/4001/p2p/12D3KooWPxRKQ8mrJspeyppXDbh8SdXq27jVD9p1CmVdi8nmPnq6
+      - LIBP2P_BOOT_NODES=/ip4/192.168.1.2/tcp/4001/p2p/12D3KooWDjKXTAv1aQU51uYk11zdyexmS66ar5D7MjeQjKJ3eRmn
+      - RELAYER_PRIVATE_KEY=5abf7640f65b4d38649f6f0cf3a878a05d1b82bfd49bcdd5f962f411a84cd84f
+      - RELAYER_BLS_SK=2a3947463935fd28479bc3ae389a3084e13e1019a6b39ea1587fcee355a95ff6
     ports:
       - "8180:8080"
-      - "51051:50051"
+      - "9191:9091"
       - "4101:4001"
     volumes:
       - ./data/db2:/app/db
     networks:
-      goat-network:
-        ipv4_address: 192.168.10.3
+      goat_network:
+        ipv4_address: 192.168.1.3
+
+  goat-relayer-3:
+    image: goatnetwork/goat-relayer:latest
+    depends_on:
+      goat-relayer-2:
+        condition: service_started
+    container_name: goat-relayer-3
+    env_file:
+      - .env
+    environment:
+      - LIBP2P_BOOT_NODES=/ip4/192.168.1.2/tcp/4001/p2p/12D3KooWDjKXTAv1aQU51uYk11zdyexmS66ar5D7MjeQjKJ3eRmn
+      - RELAYER_PRIVATE_KEY=522afed335d0e13e644ef35a4bac3d4e745a707ad258fd3a87e4bfa03c3d470c
+      - RELAYER_BLS_SK=680e85e4eac1a3e4f54b6535e35c7e5308a483859b1c2fe2e0a1c04e777c38b0
+    ports:
+      - "8280:8080"
+      - "9291:9091"
+      - "4201:4001"
+    volumes:
+      - ./data/db3:/app/db
+    networks:
+      goat_network:
+        ipv4_address: 192.168.1.4
 
 networks:
-  goat-network:
+  goat_network:
     driver: bridge
     ipam:
       config:
-        - subnet: 192.168.10.0/24
+        - subnet: 192.168.0.0/16
+          gateway: 192.168.0.1
