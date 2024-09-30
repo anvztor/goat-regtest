@@ -40,10 +40,12 @@ bitcoin-cli -regtest -rpcuser=test -rpcpassword=test -generate 1
 
 # Goat-geth-regtest
 
-`docker-compose -f docker-compose-goat-geth-init.yml up -d`
-
 `docker-compose -f docker-compose-goat-geth.yml up -d`
 
 # Frontend-regtest
 
-TODO
+`docker-compose -f docker-compose-front.yml up -d`
+
+# Subgraph-regtest
+
+`docker-compose -f docker-compose-subgraph.yml up -d`
