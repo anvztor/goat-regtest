@@ -9,7 +9,7 @@ services:
       - .env
     ports:
       - "8080:8080"
-      - "9091:9091"
+      - "50051:50051"
       - "4001:4001"
     volumes:
       - ./data/db:/app/db
@@ -31,7 +31,7 @@ services:
       - RELAYER_BLS_SK=2a3947463935fd28479bc3ae389a3084e13e1019a6b39ea1587fcee355a95ff6
     ports:
       - "8180:8080"
-      - "9191:9091"
+      - "51051:50051"
       - "4101:4001"
     volumes:
       - ./data/db2:/app/db
@@ -53,7 +53,7 @@ services:
       - RELAYER_BLS_SK=680e85e4eac1a3e4f54b6535e35c7e5308a483859b1c2fe2e0a1c04e777c38b0
     ports:
       - "8280:8080"
-      - "9291:9091"
+      - "52051:50051"
       - "4201:4001"
     volumes:
       - ./data/db3:/app/db
