@@ -41,9 +41,6 @@ services:
       - --goat.geth
       - /geth/geth.ipc
       - --api.enable
-      - --api.address=tcp://0.0.0.0:1317
-      - --rpc.laddr=tcp://0.0.0.0:26657
-      - --p2p.laddr=tcp://0.0.0.0:26656
     ports:
       - 9090:9090
       - 26657:26657
