@@ -1,6 +1,13 @@
 version: '3'
 
 services:
+  goat-deploy-thegraph:
+    image: goatnetwork/goat-deploy-thegraph:0.1
+    container_name: goat-deploy-thegraph
+    depends_on:
+      - graph-node
+    networks:
+      - goat-network
   graph-node:
     image: graphprotocol/graph-node
     container_name: goat-regtest-graph-node
