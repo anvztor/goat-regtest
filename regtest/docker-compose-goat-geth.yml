@@ -25,6 +25,9 @@ services:
       - 30303:30303
     volumes:
       - ./data/geth:/root/.ethereum
+    networks:
+      goat_network:
+        ipv4_address: 192.168.10.2
 
   goat:
     image: anvztor/goat:latest
@@ -41,9 +44,20 @@ services:
       - --api.address=tcp://0.0.0.0:1317
       - --rpc.laddr=tcp://0.0.0.0:26657
       - --p2p.laddr=tcp://0.0.0.0:26656
+    ports:
+      - 9090:9090
+      - 26657:26657
+      - 26656:26656
     volumes:
       - ./data/goat:/goat
       - ./data/geth:/geth
     depends_on:
       geth:
         condition: service_healthy
+    networks:
+      goat_network:
+        ipv4_address: 192.168.10.3
+
+networks:
+  goat_network:
+    external: true

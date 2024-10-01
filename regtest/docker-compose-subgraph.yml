@@ -45,4 +45,4 @@ services:
 
 networks:
   goat-network:
-    driver: bridge
+    external: true

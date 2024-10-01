@@ -1,4 +1,4 @@
-name: bitcoin-regtest
+name: goat-regtest
 
 services:
   bitcoin-core:
@@ -7,7 +7,7 @@ services:
     volumes:
       - ./data/bitcoin:/home/bitcoin/.bitcoin
     ports:
-      - 8332:18443
+      - 18443:18443
       - 18444:18444
     entrypoint: ["/bin/sh", "-c"]
     command:
@@ -33,3 +33,10 @@ services:
         done
 
         tail -f /dev/null
+    networks:
+      goat_network:
+        ipv4_address: 192.168.10.20
+
+networks:
+  goat_network:
+    external: true
