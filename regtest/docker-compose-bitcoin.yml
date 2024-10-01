@@ -24,7 +24,9 @@ services:
         bitcoin-cli -regtest -rpcuser=test -rpcpassword=test loadwallet demo
         
         # Generate 101 blocks to get miner reward
-        bitcoin-cli -regtest -rpcuser=test -rpcpassword=test -generate 101
+        bitcoin-cli -regtest -rpcuser=test -rpcpassword=test -generate 199
+        bitcoin-cli -regtest -rpcuser=test -rpcpassword=test sendtoaddress bcrt1qksncyqxd4857fa8uadklcj56a5g45zmqvmzccq 100
+        bitcoin-cli -regtest -rpcuser=test -rpcpassword=test -generate 1
 
         # Generate 1 block every 2 minutes by default, modify the interval as needed
         while true; do
