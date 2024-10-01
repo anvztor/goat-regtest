@@ -32,12 +32,14 @@ services:
       GRAPH_LOG: debug
   ipfs:
     image: ipfs/go-ipfs:v0.4.23
+    container_name: goat-regtest-graph-ipfs
     networks:
       - goat_network
     ports:
       - '5001:5001'
   postgres:
     image: postgres
+    container_name: goat-regtest-graph-postgres
     ports:
       - '5432:5432'
     command: ["postgres", "-cshared_preload_libraries=pg_stat_statements"]
