@@ -26,8 +26,7 @@ services:
     volumes:
       - ./data/geth:/root/.ethereum
     networks:
-      goat_network:
-        ipv4_address: 192.168.10.2
+      - goat_network
 
   goat:
     image: anvztor/goat:latest
@@ -35,6 +34,11 @@ services:
     pull_policy: if_not_present
     stop_grace_period: 30s
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "goatd status"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
     command:
       - --home
       - /goat
@@ -52,8 +56,7 @@ services:
       geth:
         condition: service_healthy
     networks:
-      goat_network:
-        ipv4_address: 192.168.10.3
+      - goat_network
 
 networks:
   goat_network:
