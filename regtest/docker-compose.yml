@@ -1,0 +1,90 @@
+version: '3'
+
+services:
+  bitcoin-core:
+    extends:
+      file: docker-compose-bitcoin.yml
+      service: bitcoin-core
+
+  geth:
+    extends:
+      file: docker-compose-goat-geth.yml
+      service: geth
+
+  goat:
+    depends_on:
+      - bitcoin-core
+      - geth
+    extends:
+      file: docker-compose-goat-geth.yml
+      service: goat
+
+  goat-relayer-1:
+    depends_on:
+      goat:
+        condition: service_healthy
+    extends:
+      file: docker-compose-relayer.yml
+      service: goat-relayer-1
+
+  goat-relayer-2:
+    depends_on:
+      - goat-relayer-1
+    extends:
+      file: docker-compose-relayer.yml
+      service: goat-relayer-2
+
+  goat-relayer-3:
+    depends_on:
+      - goat-relayer-1
+    extends:
+      file: docker-compose-relayer.yml
+      service: goat-relayer-3
+
+  engine-api-dev:
+    extends:
+      file: docker-compose-front.yml
+      service: engine-api-dev
+
+  engine-dev:
+    extends:
+      file: docker-compose-front.yml
+      service: engine-dev
+
+  unisat-server-proxy:
+    extends:
+      file: docker-compose-front.yml
+      service: unisat-server-proxy
+
+  mysql:
+    extends:
+      file: docker-compose-front.yml
+      service: mysql
+
+  goat-deploy-thegraph:
+    extends:
+      file: docker-compose-subgraph.yml
+      service: goat-deploy-thegraph
+
+  graph-node:
+    extends:
+      file: docker-compose-subgraph.yml
+      service: graph-node
+
+  ipfs:
+    extends:
+      file: docker-compose-subgraph.yml
+      service: ipfs
+
+  postgres:
+    extends:
+      file: docker-compose-subgraph.yml
+      service: postgres
+
+networks:
+  goat_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.31.32.0/20
+          gateway: 172.31.32.1
