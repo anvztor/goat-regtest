@@ -23,12 +23,11 @@ services:
         chmod 777 -R demo/
         bitcoin-cli -regtest -rpcuser=test -rpcpassword=test loadwallet demo
         
-        # Generate 101 blocks to get miner reward, execute only during initialization
-        if [ $(bitcoin-cli -regtest -rpcuser=test -rpcpassword=test getblockcount) -le 101 ]; then
-          bitcoin-cli -regtest -rpcuser=test -rpcpassword=test -generate 101
+        # Generate 199 blocks to get miner reward, execute only during initialization
+        if [ $(bitcoin-cli -regtest -rpcuser=test -rpcpassword=test getblockcount) -le 199 ]; then
+          bitcoin-cli -regtest -rpcuser=test -rpcpassword=test -generate 199
           bitcoin-cli -regtest -rpcuser=test -rpcpassword=test sendtoaddress bcrt1qksncyqxd4857fa8uadklcj56a5g45zmqvmzccq 100
           bitcoin-cli -regtest -rpcuser=test -rpcpassword=test -generate 1
-          touch /home/bitcoin/.bitcoin/regtest/initialized
         fi
 
         # Generate 1 block every 2 minutes by default, modify the interval as needed
