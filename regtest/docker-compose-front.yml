@@ -28,6 +28,8 @@ services:
     platform: linux/amd64
     environment:
       FETCH_BASE_URL: "http://localhost:3001/api"
+      UNI_SAT_URL: "http://unisat-server-proxy:3009/v5"
+      UNI_SAT_TIME_OUT: 3000
     ports:
       - "3000:3000"
     networks:
