@@ -19,6 +19,7 @@ services:
       - --http.vhosts=*
       - --http.corsdomain=*
       - --syncmode=full
+      - --nodiscover
     ports:
       - 8545:8545
       - 8551:8551
