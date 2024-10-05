@@ -25,7 +25,7 @@ services:
       - goat_network
 
   engine-dev:
-    image: goatnetwork/engine-dev:0.1.4
+    image: goatnetwork/engine-dev:0.1.5
     container_name: engine-dev
     platform: linux/amd64
     environment:
