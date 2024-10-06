@@ -19,4 +19,4 @@ cd -
 ./build/goatd modgen goat --home ./data/goat ./data/geth/regtest.json
 ./build/goatd modgen bitcoin --home ./data/goat --min-deposit 1000000 --pubkey $(jq -r '.relayer.pubkey' config.json)
 
-cp -rf ./data ./regtest/data
+mv ./data ./initialized

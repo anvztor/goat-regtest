@@ -31,3 +31,7 @@ docker-geth:
 
 docker-relayer:
 	make -C submodule/relayer docker-build-all
+
+reinit-genesis:
+	rm -rf ./initialized
+	./init
