@@ -12,10 +12,14 @@ geth:
 	cp submodule/geth/build/bin/geth build
 
 docker-goat:
-	make -C submodule/goat docker-build-all
+	cp Makefile.goat submodule/goat/Makefile.goat
+	make -f Makefile.goat -C submodule/goat docker-build-all || true
+	rm submodule/goat/Makefile
 
 docker-geth:
-	make -C submodule/geth docker-build-all
+	cp Makefile.geth submodule/goat-geth/Makefile.geth
+	make -f Makefile.geth -C submodule/goat-geth docker-build-all || true
+	rm submodule/goat-geth/Makefile
 
 docker-relayer:
 	make -C submodule/relayer docker-build-all
