@@ -3,3 +3,5 @@ data/geth
 data/goat
 !data/bitcoin.conf
 build
+regtest/data
+regtest/.env
