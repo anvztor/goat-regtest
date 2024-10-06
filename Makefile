@@ -11,6 +11,14 @@ geth:
 	make -C submodule/geth geth
 	cp submodule/geth/build/bin/geth build
 
+contracts:
+	npm ci --prefix submodule/contracts
+	npm --prefix submodule/contracts run compile
+
+clean:
+	rm -rf build
+	rm -rf data/regtest data/goat data/geth
+
 docker-goat:
 	cp Makefile.goat submodule/goat/Makefile.goat
 	make -f Makefile.goat -C submodule/goat docker-build-all || true
@@ -23,11 +31,3 @@ docker-geth:
 
 docker-relayer:
 	make -C submodule/relayer docker-build-all
-
-contracts:
-	npm ci --prefix submodule/contracts
-	npm --prefix submodule/contracts run compile
-
-clean:
-	rm -rf build
-	rm -rf data/regtest data/goat data/geth
