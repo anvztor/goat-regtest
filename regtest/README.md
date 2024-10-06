@@ -1,5 +1,19 @@
 # This is a regtest setup only for testing.
 
+## Quickstart
+
+### Start All-in-One Regtest
+```
+make compose-init
+docker compose up -d
+```
+
+### Stop & Clean
+```
+docker compose down
+make compose-clean
+```
+
 ## Create network
 
 `docker network create --driver bridge --subnet 192.168.10.0/24 goat_network`
@@ -10,7 +24,7 @@
 
 `docker exec -it bitcoin-regtest /bin/bash`
 
-### Generate Deposits
+#### Generate Deposits
 ```
 # Make deposits (e.g. 1 btc to evmAddress 0x70997970C51812dc3A010C7d01b50e0d17dc79C8)
 ## V0: Send btc to p2wsh address bcrt1q8kqj8j03apl542ftnqdc8hwrge6tyymwnd0sr7f0e57mxwpjl2eqadm5rh
