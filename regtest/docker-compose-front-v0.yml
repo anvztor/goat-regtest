@@ -2,7 +2,7 @@ name: goat-regtest
 
 services:
   engine-api-dev:
-    image: goatnetwork/engine-api-dev:0.1.6
+    image: goatnetwork/engine-api-dev:0.1.7
     container_name: engine-api-dev
     platform: linux/amd64
     ports:
@@ -18,7 +18,7 @@ services:
       GRAPH_BRIDGE_URL: "http://goat-regtest-graph-node:8000/subgraphs/name/Bridge"
       UNI_SAT_URL: "http://unisat-server-proxy:3009/v5"
       UNI_SAT_TIME_OUT: 3000
-      DEPOSIT_VERSION: V1
+      DEPOSIT_VERSION: V0
     depends_on:
       mysql:
         condition: service_healthy
@@ -26,7 +26,7 @@ services:
       - goat_network
 
   engine-dev:
-    image: goatnetwork/engine-dev:0.1.6
+    image: goatnetwork/engine-dev:0.1.7
     container_name: engine-dev
     platform: linux/amd64
     environment:
