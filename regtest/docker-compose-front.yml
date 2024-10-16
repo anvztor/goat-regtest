@@ -2,7 +2,7 @@ name: goat-regtest
 
 services:
   engine-api-dev:
-    image: goatnetwork/engine-api-dev:0.1.6
+    image: goatnetwork/engine-api-test:0.1.20
     container_name: engine-api-dev
     platform: linux/amd64
     ports:
@@ -26,7 +26,7 @@ services:
       - goat_network
 
   engine-dev:
-    image: goatnetwork/engine-dev:0.1.6
+    image: goatnetwork/engine-dev:0.1.10
     container_name: engine-dev
     platform: linux/amd64
     environment:
