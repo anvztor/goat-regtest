@@ -2,8 +2,8 @@ name: goat-regtest
 
 services:
   engine-api-dev:
-    image: goatnetwork/engine-api-test:0.1.20
-    container_name: engine-api-dev
+    image: goatnetwork/bridge-api-devnet:0.1.1
+    container_name: bridge-api-devnet
     platform: linux/amd64
     ports:
       - "3001:3001"
@@ -26,8 +26,8 @@ services:
       - goat_network
 
   engine-dev:
-    image: goatnetwork/engine-dev:0.1.10
-    container_name: engine-dev
+    image: goatnetwork/bridge-dev:0.1.1
+    container_name: bridge-dev
     platform: linux/amd64
     environment:
       FETCH_BASE_URL: "http://localhost:3001/api"
