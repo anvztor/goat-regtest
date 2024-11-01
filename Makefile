@@ -29,7 +29,9 @@ docker-geth:
 	rm submodule/geth/Makefile.geth
 
 docker-relayer:
-	make -C submodule/relayer docker-build-all
+	cp Makefile.relayer submodule/relayer/Makefile.relayer
+	make -f Makefile.relayer -C submodule/relayer docker-build-all || true
+	rm submodule/relayer/Makefile.relayer
 
 reinit-genesis:
 	rm -rf ./initialized/geth ./initialized/goat
