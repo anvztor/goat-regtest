@@ -19,6 +19,7 @@ services:
       UNI_SAT_URL: "http://unisat-server-proxy:3009/v5"
       UNI_SAT_TIME_OUT: 3000
       DEPOSIT_VERSION: V1
+      BITCOIN_NETWORK: regtest
     depends_on:
       mysql:
         condition: service_healthy
