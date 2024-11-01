@@ -1,0 +1,76 @@
+{
+  "GoatToken": {
+    "owner": "0xbc000FE892bC88F2ba41d70aF9F80619F556dCA2",
+    "transfers": [
+      {
+        "to": "0xbC10000000000000000000000000000000000004",
+        "value": "200000000ether"
+      }
+    ]
+  },
+  "GoatFoundation": {
+    "owner": "0xbc000FE892bC88F2ba41d70aF9F80619F556dCA2"
+  },
+  "GoatDAO": {},
+  "Bridge": {
+    "owner": "0xbc000FE892bC88F2ba41d70aF9F80619F556dCA2",
+    "withdrawalTaxBP": 2,
+    "deposits": []
+  },
+  "Bitcoin": {
+    "height": 0,
+    "network": "regtest",
+    "hash": "0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206"
+  },
+  "WrappedBitcoin": {},
+  "Relayer": {
+    "owner": "0xbc000FE892bC88F2ba41d70aF9F80619F556dCA2",
+    "voters": [
+      {
+        "txKey": "02bfe857f1e4d38ccbca40fd5fa25712a834c4f5c0da504acd15570d03118f7166",
+        "voteKey": "821c77b092719b44f66e6046324f3a1f2e95842c6728e7165c1213e50558e25b39e905c32fdb52625ce2f277d7dc0986002396d24df7aa065cf0673f1b3a27b75c8e86519ddba05ae857887765fb28e72a1419aa6b2d5898d9868c42e4dc6086"
+      },
+      {
+        "txKey": "0362b9a4bc43e5b3c289ffde81f6c859898bfcc7719f75b5efe001d1d3deca18b0",
+        "voteKey": "964d4e76e0a23143b1ce8b50dfd5ca3e4b5195b2b5873c75a393097407ecc7ded10c2ee36df069fa27072790b170d64f0bf209c0887b66c25b09e61d0bcf7a642319025b3e97305d7364846e3f5f3e556bc3304f9f764b8e1e7957eb06cb9be8"
+      },
+      {
+        "txKey": "03420680754e04f7fdac6f027a45e420c481afe679a18fcad25d111470abb7dfb6",
+        "voteKey": "83ee3d0208314886e12228cbe152c038ab640224a5636b9b9ab4859cc1127c29b6a8c2a1440ba9935ca1e69e264461e3018d0e164cc085e6e09e899bc59552a0b5074e5d8d0c6ac354901376201debf86c0ff98aaa5228a8c9f486dafd33e348"
+      }
+    ]
+  },
+  "Locking": {
+    "owner": "0xbc000FE892bC88F2ba41d70aF9F80619F556dCA2",
+    "tokens": [
+      {
+        "address": "0x0000000000000000000000000000000000000000",
+        "weight": 12000,
+        "limit": "800000000000000000000",
+        "threshold": "10000000000000000000"
+      }
+    ],
+    "validators": [
+      {
+        "owner": "0xbc000fe892bc88f2ba41d70af9f80619f556dca2",
+        "pubkey": "0x6db802827fb5db775eceac7477d86bb552131aeaf1c6f93422c19ad11d413b362c6c0268997765875e9fda8981666a523116a597e55dce0357f9c7b6134778c0",
+        "signature": "0xc5cd54c6985132fc87bfed46f8e046f27731287cf50590dd0312161bdfa58b4e293dd94b04f70d5e2cbfd00afee873a90aac705d6085ec09f9f46fae1eeb47a101"
+      }
+    ],
+    "allowList": []
+  },
+  "Consensus": {
+    "Relayer": {
+      "tssPubkey": "02b46f2e2e387cbc2bfb541da34d5149256f593a3c175b18004ba21db23d2b8c24",
+      "acceptProposerTimeout": "1m"
+    },
+    "Bridge": {
+      "minDepositInSat": 10000,
+      "confirmationNumber": 1
+    },
+    "Locking": {
+      "exitDuration": "3600s",
+      "unlockDuration": "1800s"
+    }
+  }
+}

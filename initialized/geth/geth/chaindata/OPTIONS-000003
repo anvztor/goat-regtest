@@ -55,7 +55,7 @@
   filter_policy=rocksdb.BuiltinBloomFilter
   filter_type=table
   index_block_size=4096
-  target_file_size=2097152
+  target_file_size=4194304
 
 [Level "2"]
   block_restart_interval=16
@@ -65,7 +65,7 @@
   filter_policy=rocksdb.BuiltinBloomFilter
   filter_type=table
   index_block_size=4096
-  target_file_size=2097152
+  target_file_size=8388608
 
 [Level "3"]
   block_restart_interval=16
@@ -75,7 +75,7 @@
   filter_policy=rocksdb.BuiltinBloomFilter
   filter_type=table
   index_block_size=4096
-  target_file_size=2097152
+  target_file_size=16777216
 
 [Level "4"]
   block_restart_interval=16
@@ -85,7 +85,7 @@
   filter_policy=rocksdb.BuiltinBloomFilter
   filter_type=table
   index_block_size=4096
-  target_file_size=2097152
+  target_file_size=33554432
 
 [Level "5"]
   block_restart_interval=16
@@ -95,7 +95,7 @@
   filter_policy=rocksdb.BuiltinBloomFilter
   filter_type=table
   index_block_size=4096
-  target_file_size=2097152
+  target_file_size=67108864
 
 [Level "6"]
   block_restart_interval=16
@@ -105,4 +105,4 @@
   filter_policy=rocksdb.BuiltinBloomFilter
   filter_type=table
   index_block_size=4096
-  target_file_size=2097152
+  target_file_size=134217728

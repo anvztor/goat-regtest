@@ -238,5 +238,3 @@ max-txs = 10
 [goat]
 # the goat-geth node endpoint, using ipc is recommended
 geth = ""
-# the jwt secret file for engine api, it's only required if connecting to an execution node via HTTP.
-jwt-secret = ""

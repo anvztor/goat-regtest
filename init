@@ -1,23 +1,26 @@
 git pull --recurse-submodules
+cp example.json config.json
 make init
+./build/goatd --home ./data/goat modgen init --chain-id regtest regtest
+./build/goatd --home ./data/goat modgen locking sign --owner 0xbc000FE892bC88F2ba41d70aF9F80619F556dCA2
 
-# create geth genesis
-cp regtest.json submodule/contracts/ignition
+VALIDATOR=$(./build/goatd --home ./data/goat modgen locking sign --owner 0xbc000FE892bC88F2ba41d70aF9F80619F556dCA2)
+jq --argjson new_data "$VALIDATOR" '.Locking.validators += [$new_data]' config.json > tmp.json && mv tmp.json config.json
+
+VOTERA=$(./build/goatd --home ./data/goat modgen relayer keygen)
+jq --argjson new_data "$VOTERA" '.Relayer.voters += [$new_data]' config.json > tmp.json && mv tmp.json config.json
+VOTERB=$(./build/goatd --home ./data/goat modgen relayer keygen)
+jq --argjson new_data "$VOTERB" '.Relayer.voters += [$new_data]' config.json > tmp.json && mv tmp.json config.json
+VOTERC=$(./build/goatd --home ./data/goat modgen relayer keygen)
+jq --argjson new_data "$VOTERC" '.Relayer.voters += [$new_data]' config.json > tmp.json && mv tmp.json config.json
+
+cp config.json submodule/contracts/genesis
 cd submodule/contracts
-rm -rf ignition/deployments
-npm run genesis -- --faucet 0x29cF29d4b2CD6Db07f6db43243e8E43fE3DC468e --amount 100 --force true
-cp ./ignition/genesis/regtest.json ../../data/geth
+npm run genesis
+cp ./genesis/regtest.json ./genesis/config.json ../../data/geth
 cd -
-./build/geth init --datadir ./data/geth ./data/geth/regtest.json
-
-# create goat genesis
-./build/goatd init --home ./data/goat regtest
-./build/goatd modgen validator --home ./data/goat --pubkey $(jq -r '.pub_key.value' ./data/goat/config/priv_validator_key.json)
-./build/goatd modgen relayer append --home ./data/goat --key.tx $(jq -r '.votera.TxPubkey' config.json) --key.vote $(jq -r '.votera.VotePubkey' config.json) $(jq -r '.votera.Address' config.json)
-./build/goatd modgen relayer append --home ./data/goat --key.tx $(jq -r '.voterb.TxPubkey' config.json) --key.vote $(jq -r '.voterb.VotePubkey' config.json) $(jq -r '.voterb.Address' config.json)
-./build/goatd modgen relayer append --home ./data/goat --key.tx $(jq -r '.voterc.TxPubkey' config.json) --key.vote $(jq -r '.voterc.VotePubkey' config.json) $(jq -r '.voterc.Address' config.json)
-./build/goatd modgen goat --home ./data/goat ./data/geth/regtest.json
-./build/goatd modgen bitcoin --home ./data/goat --min-deposit 1000000 --pubkey $(jq -r '.relayer.pubkey' config.json)
+./build/geth init --db.engine pebble --state.scheme path --datadir ./data/geth ./data/geth/regtest.json
+./submodule/goat/contrib/scripts/genesis.sh ./data/goat ./data/geth/config.json ./data/geth/regtest.json
 
 mv ./data/* ./initialized/
 sed -i '' 's/address = "localhost:9090"/address = "0.0.0.0:9090"/' ./initialized/goat/config/app.toml && \
