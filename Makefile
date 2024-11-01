@@ -1,5 +1,4 @@
-init: goat geth contracts
-images: docker-goat docker-geth docker-relayer
+init: clean goat geth contracts
 
 goat:
 	mkdir -p build data/goat
@@ -17,7 +16,7 @@ contracts:
 
 clean:
 	rm -rf build
-	rm -rf data/regtest data/goat data/geth
+	rm -rf data/goat data/geth
 
 docker-goat:
 	cp Makefile.goat submodule/goat/Makefile.goat
