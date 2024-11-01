@@ -46,10 +46,12 @@ services:
       - --goat.geth
       - /geth/geth.ipc
       - --api.enable
+      - --api.address=tcp://0.0.0.0:1317
     ports:
       - 9090:9090
       - 26657:26657
       - 26656:26656
+      - 1317:1317
     volumes:
       - ./data/goat:/goat
       - ./data/geth:/geth
