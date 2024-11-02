@@ -20,6 +20,7 @@ services:
       UNI_SAT_TIME_OUT: 3000
       DEPOSIT_VERSION: V1
       BITCOIN_NETWORK: regtest
+      GOAT_URL: http://goat-regtest-goat-node:1317
     depends_on:
       mysql:
         condition: service_healthy
