@@ -2,7 +2,7 @@ name: goat-regtest
 
 services:
   engine-api-dev:
-    image: goatnetwork/bridge-api-devnet:0.1.1
+    image: goatnetwork/bridge-api-devnet:0.1.2
     container_name: bridge-api-devnet
     platform: linux/amd64
     ports:
@@ -21,6 +21,8 @@ services:
       DEPOSIT_VERSION: V1
       BITCOIN_NETWORK: regtest
       GOAT_URL: http://goat-regtest-goat-node:1317
+      GETH_RPC_URL: http://goat-regtest-geth-node:8545
+      BRIDGE_CONTRACT_ADDRESS: 0xbc10000000000000000000000000000000000003
     depends_on:
       mysql:
         condition: service_healthy
