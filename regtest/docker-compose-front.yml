@@ -30,7 +30,7 @@ services:
       - goat_network
 
   engine-dev:
-    image: goatnetwork/bridge-dev:0.1.11
+    image: goatnetwork/bridge-dev:0.1.12
     container_name: bridge-dev
     platform: linux/amd64
     environment:
