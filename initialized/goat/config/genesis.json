@@ -1,7 +1,7 @@
 {
   "app_name": "goatd",
   "app_version": "HEAD-75aa6bcafc11ae9e7c7c711b7789839c799c4d2f",
-  "genesis_time": "2024-11-05T09:03:00.65555Z",
+  "genesis_time": "2024-11-05T09:36:12.36936Z",
   "chain_id": "regtest",
   "initial_height": 1,
   "app_hash": null,
@@ -17,40 +17,40 @@
       "accounts": [
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "goat1wq79pvtlqj26xy0n6kmf5pjuwc0dhv2lg9ylpn",
+          "address": "goat15tgf5q0l5uy0st94hd6drjttxmnq3ce8dmxskt",
           "pub_key": {
             "@type": "/cosmos.crypto.secp256k1.PubKey",
-            "key": "AtAaIb5CqAlkdCrYG8exYqjFdOoHPIjdcavb+eF4F7kZ"
+            "key": "Atb45RdfQztidOaqYoVOQ1/6HynLspt2t40wqBOtCGqN"
           },
           "account_number": "0",
           "sequence": "0"
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "goat145wz086k9v4qe4srhhyx36spvxkrckh7pk78vf",
+          "address": "goat1vqsdcp0vyqhkr8jrunghqafzea54tplscll5pv",
           "pub_key": {
             "@type": "/cosmos.crypto.secp256k1.PubKey",
-            "key": "A+zU9JZHlIPt6U0355G0phA01E8J0TktIIQ3E5rS9JVc"
+            "key": "A5Wcq/9Mc4Cljs7z/BL1Yz1ZSrcwn3gs5NaaV/zLP6rF"
           },
           "account_number": "1",
           "sequence": "0"
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "goat1t7pkl3asf8fm4m9qhxr849687m4csdezvuxm65",
+          "address": "goat1rzwadkcjjs2h00eaafzd00jx45kvl6t998ufv2",
           "pub_key": {
             "@type": "/cosmos.crypto.secp256k1.PubKey",
-            "key": "AoKFeRUrpcw4ZGQ0dbdRRg4GYdTtrwVK4FVUVcjA2v6K"
+            "key": "Av+G6BaU9p7cTk/of8JQJBcZhLcheYyqq6gEu4BhZyE+"
           },
           "account_number": "2",
           "sequence": "0"
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "goat1qqfh4nh55tm7x44z5vucrktn057p7tp4csdfgx",
+          "address": "goat1ejh76ftqn2fkzuqvymn58kcrxtcjpae9kjnj3f",
           "pub_key": {
             "@type": "/cosmos.crypto.secp256k1.PubKey",
-            "key": "A/gTQtkGm+eMc43sFhh1hESLED96dP4Fg2yQdD3NzeMW"
+            "key": "AiVyWFQIFPkSLM+eT4yX+tSompHgmW6O9YxmN/ZKIX+L"
           },
           "account_number": "3",
           "sequence": "0"
@@ -89,17 +89,17 @@
       "eth_block": {
         "parent_hash": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
         "fee_recipient": "AAAAAAAAAAAAAAAAAAAAAAAAAAA=",
-        "state_root": "+IYLDK4YQq1FxHri2Wg9LhpbEWmZtxIU6vyVD1sT6dU=",
+        "state_root": "GQP14HQAuWcnaZnns9/Ojy1J14QLmaU7bXZw2fhwH2U=",
         "receipts_root": "VugfFxvMVab/g0XmksD4bltI4BuZbK3AAWIvteNjtCE=",
         "logs_bloom": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
         "prev_randao": "",
         "block_number": "0",
         "gas_limit": "30000000",
         "gas_used": "0",
-        "timestamp": "1730797384",
+        "timestamp": "1730799375",
         "extra_data": "AFboHxcbzFWm/4NF5pLA+G5bSOAbmWytwAFiL7XjY7Qh",
         "base_fee_per_gas": "2028449",
-        "block_hash": "muyzfux61v8xKzbB+HnRlZ7C74hXMymJ4NpMLTme2mY=",
+        "block_hash": "/bbrQwX02OuPLn1xreTMRv71ttP1mHxhN/l6K/QDF54=",
         "transactions": [],
         "beacon_root": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
         "blob_gas_used": "0",
@@ -123,7 +123,7 @@
       },
       "validators": [
         {
-          "pubkey": "AtAaIb5CqAlkdCrYG8exYqjFdOoHPIjdcavb+eF4F7kZ",
+          "pubkey": "Atb45RdfQztidOaqYoVOQ1/6HynLspt2t40wqBOtCGqN",
           "power": "120000",
           "locking": [
             {
@@ -170,31 +170,31 @@
       },
       "relayer": {
         "epoch": "0",
-        "proposer": "goat145wz086k9v4qe4srhhyx36spvxkrckh7pk78vf",
+        "proposer": "goat1ejh76ftqn2fkzuqvymn58kcrxtcjpae9kjnj3f",
         "voters": [
-          "goat1qqfh4nh55tm7x44z5vucrktn057p7tp4csdfgx",
-          "goat1t7pkl3asf8fm4m9qhxr849687m4csdezvuxm65"
+          "goat1rzwadkcjjs2h00eaafzd00jx45kvl6t998ufv2",
+          "goat1vqsdcp0vyqhkr8jrunghqafzea54tplscll5pv"
         ],
-        "last_elected": "2024-11-05T09:03:05.382810Z",
+        "last_elected": "2024-11-05T09:36:16.715128Z",
         "proposer_accepted": true
       },
       "sequence": "0",
       "voters": [
         {
-          "address": "rRwnn1YrKgzWA73IaOoBYaw8Wv4=",
-          "vote_key": "toBsyNeTXup64CBEM8T3rlHzRA0C8KUqAiFJjxCOf30zqpk8Ru3r2QJQe9ckEnwWBTlngc8SLYSQqOKHvvnNqVBjHE7/CQoASl9NxTjqMrsSJNeWuWlm6CfhV1xrubVE",
+          "address": "YCDcBewgL2GeQ+TRcHUiz2lVh/A=",
+          "vote_key": "l6x3tgBvN+Ctub99jQKUplRNSx61zelUK6MctyKEChhpV1MLpqTkhgo1Qr/vL5HmFbOgq9HtGCqE/3Ll6myu2WUadL3imRDR90da0LlNuajxYzkor1dDblbYVZ5IphUz",
           "status": "VOTER_STATUS_ACTIVATED",
           "height": "0"
         },
         {
-          "address": "X4Nvx7BJ07rsoLmGepdH9uuINyI=",
-          "vote_key": "i9DUh7NHLrN6iOpuAomZrYnw9Xvy/cJlWJjVWN4hcSq8crLtuhqfEdE+R+GTrJOIDXSIC4tEtic1I7x5QCJbyn6UDhnNxfBLQZUDmrOulXSoZ9gesU30O5YYAdgG2z2E",
+          "address": "GJ3W2xKUFXe/PepE175GrSzP6WU=",
+          "vote_key": "iyW9G6asMNlds4/0HHHRa8RoC2+NtEP/Yd9v1Ub+C/z5/FnGfO/HzWj/m7ElnnXnEfQMmgpEOkV50VzGM9Vf0S4hXTA+0yKJmDyvfOhK88XCg9E8Yl9EM5OnqiJQaLrq",
           "status": "VOTER_STATUS_ACTIVATED",
           "height": "0"
         },
         {
-          "address": "ABN6zvSi9+NWoqM5gdlzfTwfLDU=",
-          "vote_key": "tBfqSCOeEbZ3u9/5UTEmE5a7iB9G7QaGL1oZeK+1diQrDgD9B0o6hc9/9y0pDs5PBWxxB2aibp5dQbrpevr1KUdiDG/CI9klCM0fO8UwQgOlKGqmI3kue3CF/nWER99j",
+          "address": "zK/tJWCak2FwDCbnQ9sDMvEg9yU=",
+          "vote_key": "tRvXUlInj5vepfj1IzNJxWFTurkYtKCqKHwUH0x8FPnorsC6rne+3WY3Yar4z8aXDh842nIuypvCFgeVOyw/8lOLdkPlv7vngkooXLSiJBd9fn3GDoYBS7lYZfAA0r0Z",
           "status": "VOTER_STATUS_ACTIVATED",
           "height": "0"
         }

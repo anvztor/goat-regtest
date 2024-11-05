@@ -2,7 +2,7 @@ name: goat-regtest
 
 services:
   engine-api-dev:
-    image: goatnetwork/bridge-api-devnet:0.1.3
+    image: goatnetwork/bridge-api-devnet:0.1.4
     container_name: bridge-api-devnet
     platform: linux/amd64
     ports:
@@ -11,10 +11,10 @@ services:
       PORT: 3001
       DATABASE_URL: "mysql://root:123456@mysql-goat:3306/engine"
       GRPC_URL: "goat-relayer-1:50051"
-      REG_TEST_PORT: 18443
-      REG_TEST_HOST: "bitcoin-regtest"
-      REG_TEST_USER_NAME: "test"
-      REG_TEST_PASS_WORD: "test"
+      OWN_NODE_PORT: 18443
+      OWN_NODE_HOST: "bitcoin-regtest"
+      OWN_NODE_USER_NAME: "test"
+      OWN_NODE_PASS_WORD: "test"
       GRAPH_BRIDGE_URL: "http://goat-regtest-graph-node:8000/subgraphs/name/Bridge"
       UNI_SAT_URL: "http://unisat-server-proxy:3009/v5"
       UNI_SAT_TIME_OUT: 3000
