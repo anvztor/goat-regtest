@@ -41,6 +41,7 @@ services:
       timeout: 5s
       retries: 5
     command:
+      - start
       - --home
       - /goat
       - --goat.geth

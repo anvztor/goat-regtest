@@ -179,7 +179,7 @@ max-send-msg-size = "2147483647"
 # GRPCWebEnable defines if the gRPC-web should be enabled.
 # NOTE: gRPC must also be enabled, otherwise, this configuration is a no-op.
 # NOTE: gRPC-Web uses the same address as the API server.
-enable = true
+enable = false
 
 ###############################################################################
 ###                        State Sync Configuration                         ###
@@ -236,5 +236,8 @@ stop-node-on-err = true
 max-txs = 10
 
 [goat]
-# the goat-geth node endpoint, using ipc is recommended
+# the goat-geth node ipc path
+# we don't use http due to the node server has body limit for it
 geth = ""
+# the node preset configuration, e.g. rpc,bootnode
+preset = ""

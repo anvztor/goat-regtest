@@ -14,13 +14,9 @@ jq --argjson new_data "$VOTERB" '.Relayer.voters += [$new_data]' config.json > t
 VOTERC=$(./build/goatd --home ./data/goat modgen relayer keygen)
 jq --argjson new_data "$VOTERC" '.Relayer.voters += [$new_data]' config.json > tmp.json && mv tmp.json config.json
 
-cp config.json submodule/contracts/genesis
-cd submodule/contracts
-npm run genesis
-cp ./genesis/regtest.json ./genesis/config.json ../../data/geth
-cd -
-./build/geth init --db.engine pebble --state.scheme path --datadir ./data/geth ./data/geth/regtest.json
-./submodule/goat/contrib/scripts/genesis.sh ./data/goat ./data/geth/config.json ./data/geth/regtest.json
+npm --prefix submodule/contracts run genesis -- --param ../../config.json
+./build/geth init --db.engine pebble --state.scheme hash --cache.preimages --datadir ./data/geth ./submodule/contracts/genesis/regtest.json
+./submodule/goat/contrib/scripts/genesis.sh ./data/goat ./config.json ./submodule/contracts/genesis/regtest.json
 
 mv ./data/* ./initialized/
 sed -i '' 's/address = "localhost:9090"/address = "0.0.0.0:9090"/' ./initialized/goat/config/app.toml && \
