@@ -72,3 +72,7 @@ docker-relayer:
 reinit-genesis:
 	rm -rf ./initialized/geth ./initialized/goat
 	./init
+	mv ./data/* ./initialized/
+	sed -i '' 's/address = "localhost:9090"/address = "0.0.0.0:9090"/' ./initialized/goat/config/app.toml
+	sed -i '' 's|node = "tcp://localhost:26657"|node = "tcp://0.0.0.0:26657"|' ./initialized/goat/config/client.toml
+	sed -i '' 's|laddr = "tcp://127.0.0.1:26657"|laddr = "tcp://0.0.0.0:26657"|' ./initialized/goat/config/config.toml
