@@ -1,4 +1,63 @@
 {
+  "Bitcoin": {
+    "hash": "0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206",
+    "height": 0,
+    "network": "regtest"
+  },
+  "Bridge": {
+    "confirmationNumber": 1,
+    "depositPrefixMagic": "GTV0",
+    "depositTaxBP": 20,
+    "deposits": [],
+    "maxDepositTaxInSat": "100000",
+    "maxWithdrawalTaxInSat": "200000",
+    "minDepositInSat": "100000",
+    "minWithdrawalInSat": "10000",
+    "owner": "0xbc000FE892bC88F2ba41d70aF9F80619F556dCA2",
+    "withdrawalTaxBP": 2
+  },
+  "Consensus": {
+    "Bridge": {
+      "confirmationNumber": 1,
+      "minDepositInSat": 10000
+    },
+    "Goat": {
+      "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "sha3Uncles": "0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347",
+      "miner": "0x0000000000000000000000000000000000000000",
+      "stateRoot": "0xa6101564d51a2527cfe9d62dc7e99f065d7addfb8c1aa6e8bed63f534b9f41ba",
+      "transactionsRoot": "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+      "receiptsRoot": "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+      "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "difficulty": "0x0",
+      "number": "0x0",
+      "gasLimit": "0x1c9c380",
+      "gasUsed": "0x0",
+      "timestamp": "0x672f0ded",
+      "extraData": "0x0056e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+      "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "nonce": "0x0000000000000000",
+      "baseFeePerGas": "0x1ef3a1",
+      "withdrawalsRoot": "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+      "blobGasUsed": "0x0",
+      "excessBlobGas": "0x0",
+      "parentBeaconBlockRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "requestsRoot": "0xe3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash": "0xdef903805f4516d636abbf914440e816ed0dee6513c3ebd3d01278834c4a9a7a"
+    },
+    "Locking": {
+      "exitDuration": "3600s",
+      "unlockDuration": "1800s"
+    },
+    "Relayer": {
+      "acceptProposerTimeout": "1m",
+      "tssPubkey": "02b46f2e2e387cbc2bfb541da34d5149256f593a3c175b18004ba21db23d2b8c24"
+    }
+  },
+  "GoatDAO": {},
+  "GoatFoundation": {
+    "owner": "0xbc000FE892bC88F2ba41d70aF9F80619F556dCA2"
+  },
   "GoatToken": {
     "owner": "0xbc000FE892bC88F2ba41d70aF9F80619F556dCA2",
     "transfers": [
@@ -8,73 +67,48 @@
       }
     ]
   },
-  "GoatFoundation": {
-    "owner": "0xbc000FE892bC88F2ba41d70aF9F80619F556dCA2"
-  },
-  "GoatDAO": {},
-  "Bridge": {
-    "owner": "0xbc000FE892bC88F2ba41d70aF9F80619F556dCA2",
-    "withdrawalTaxBP": 2,
-    "deposits": []
-  },
-  "Bitcoin": {
-    "height": 0,
-    "network": "regtest",
-    "hash": "0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206"
-  },
-  "WrappedBitcoin": {},
-  "Relayer": {
-    "owner": "0xbc000FE892bC88F2ba41d70aF9F80619F556dCA2",
-    "voters": [
-      {
-        "address": "0x94063100fede1e1697b5d97aa771924056909cae",
-        "txKey": "03b34fa5af258ca3c9a49f93378580c2a40399b844c30c84f226eb741e3d2c6f6e",
-        "voteKey": "87679538e87184632bc5ac980149340571914e3096a010800b69c43fe8a0c314446448458602577cf68882f4812e4d741677c50c4d8df419ba0751fddbc1aba9c0e26072665e42db46199b63017037426d1f0bf7426574ae53dfe2f7a9836e15"
-      },
-      {
-        "address": "0xaf9254c1772a43c54424d17cf3f1df747e83beb8",
-        "txKey": "025f4a6a0ada8e6233df2fcc96fc8e4231cda1e81a24031c9f48a5e6ce86014310",
-        "voteKey": "909a2e4d9e6c6f4daa3cf991eb72615645c26fcaa1e12b265f5dd818beab08cf54d023e640a402cb6338ebb47eac97580b82bf53af7ad2bf280436b86fa8c79493f2451cbf914b9016cba135d9e7f69860d832f285be2ebdb0bf5d4e8b60d8df"
-      },
-      {
-        "address": "0x4e4c335c0ac765d8f166d61d7b051c7b34eec257",
-        "txKey": "02e8d9031433a8c21b6b2a1c0f452285bfe95390588596c3c9240d9ded8b8dea9a",
-        "voteKey": "81de3ea6baa73e54463126ea2e84e991b77eca6f1f6a8fc9b677f89673189cbc5567f8c577be4ba04d8f677c9e4027d8075ba39070d11b1b5844e70a0846559fb3efccd4a5522aa9e4043ae14118937c1d0830a26c49f755c714878eb3b11362"
-      }
-    ]
-  },
   "Locking": {
+    "allowList": [],
     "owner": "0xbc000FE892bC88F2ba41d70aF9F80619F556dCA2",
     "tokens": [
       {
         "address": "0x0000000000000000000000000000000000000000",
-        "weight": 12000,
         "limit": "800000000000000000000",
-        "threshold": "10000000000000000000"
+        "threshold": "10000000000000000000",
+        "weight": 12000
       }
     ],
     "validators": [
       {
         "owner": "0xbc000fe892bc88f2ba41d70af9f80619f556dca2",
-        "pubkey": "0xf09c2a5c597e19813db825586fe33e366c6af31a174f784a06d7cf035ec54c78687329cc58020eff5883c3f718736ab1189516fb62fb45131b91ad306c07a088",
-        "signature": "0x3b06881e97ae0ee8cfa4c2f6e587c9b35970fbf7a5fcf62599dd27bd51fb6a673adca41ced7e12906a7b268aa4dfd13f75f7d2d044e778a69b57dd74e2d8c04200",
-        "validator": "0x22c590620c68ab3bb51a30c9d50e92b4dd247e8e"
+        "pubkey": "0x6981e85a1eb2d67b008033cf0cb65662b6b2b6c4738bee083f0922dfb2890dba902d53a296df60853b3f5eeaea0b989f92d6cfcb0e9a4a4b402ab59e209903e7",
+        "signature": "0x8ff3ab79543b1a2152e47195b20d3b6515886d09e6be0d7f57e50b75951612210b7dbd2602911236a0e8a0544ebfe1f058303ac69db34d7e7847ddce38d7eb4801",
+        "validator": "0x8bf0fd9a0d24d8fd3c7c89b1d6772a68328a5996"
       }
-    ],
-    "allowList": []
+    ]
   },
-  "Consensus": {
-    "Relayer": {
-      "tssPubkey": "02b46f2e2e387cbc2bfb541da34d5149256f593a3c175b18004ba21db23d2b8c24",
-      "acceptProposerTimeout": "1m"
-    },
-    "Bridge": {
-      "minDepositInSat": 10000,
-      "confirmationNumber": 1
-    },
-    "Locking": {
-      "exitDuration": "3600s",
-      "unlockDuration": "1800s"
-    }
-  }
+  "Relayer": {
+    "owner": "0xbc000FE892bC88F2ba41d70aF9F80619F556dCA2",
+    "voters": [
+      {
+        "address": "0x115db7f70b19b045ba914f04789f9ed998c450da",
+        "txKey": "0243e4426f1eac325286d60155fb7b6bd3c31a00c1162b151bcd2582321e96d08f",
+        "type": "PublicKey",
+        "voteKey": "9776e1fe72b4b052458d6b7127952df26d51d7a1198a67a26e5318ab56c3e36041c1d21a1bd88f6acd4fa969071482a21075eb15c3ad9309ddffc6a291d7b6b1de7a1f4908406c55b684872456ef366a620edb76f314867a1f794c6ef1b743b4"
+      },
+      {
+        "address": "0x41c3cb4be18abaf16afb02b9b7f925906772f8b4",
+        "txKey": "03dee23a9f891d4cde9e355a4f089a0800e33ddc50bed42c0219a990ca78c6c267",
+        "type": "PublicKey",
+        "voteKey": "b7d9eb0715e13130ab10ada1dbc78a8d746ca4df70c5332eccacbef3998615889d1cf7e57e5b22cf31e98c9757bbfda313dbf2a8a970cf0c804eedbb2c9d57d49efb43901389015a284f08785ac59295ae9903eb50e8751f2a75d1b23641fe80"
+      },
+      {
+        "address": "0x413fa9c120fca5564f363f1087a821b4b25fd79d",
+        "txKey": "021b98efdcb950eaaa8d51d70a331c397a64c5917b8856c887a17324d1c59a4798",
+        "type": "PublicKey",
+        "voteKey": "8d28a1266f9a74cf3f68381f72bde43d1796be2c83b3b94639020cf1aaa9aad70eeef89e7ab5997453904d8179a747bb01257e8fb2b13be6ffe257b78c40c9afb8d7fe1ee557c2985b9bb88017ccb1c553cc7ad3d0a6b4a1d8ce018890a87b36"
+      }
+    ]
+  },
+  "WrappedBitcoin": {}
 }
