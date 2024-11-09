@@ -75,4 +75,12 @@ reinit-genesis:
 	mv ./data/* ./initialized/
 	sed -i '' 's/address = "localhost:9090"/address = "0.0.0.0:9090"/' ./initialized/goat/config/app.toml
 	sed -i '' 's|node = "tcp://localhost:26657"|node = "tcp://0.0.0.0:26657"|' ./initialized/goat/config/client.toml
-	sed -i '' 's|laddr = "tcp://127.0.0.1:26657"|laddr = "tcp://0.0.0.0:26657"|' ./initialized/goat/config/config.toml
+	sed -i '' \
+		-e 's|laddr = "tcp://127.0.0.1:26657"|laddr = "tcp://0.0.0.0:26657"|' \
+		-e 's/timeout_propose = "500ms"/timeout_propose = "1.5s"/' \
+		-e 's/timeout_propose_delta = "500ms"/timeout_propose_delta = "1s"/' \
+		-e 's/timeout_prevote = "500ms"/timeout_prevote = "1.5s"/' \
+		-e 's/timeout_precommit = "500ms"/timeout_precommit = "1s"/' \
+		-e 's/timeout_precommit_delta = "500ms"/timeout_precommit_delta = "1s"/' \
+		-e 's/timeout_commit = "1.01s"/timeout_commit = "5s"/' \
+		./initialized/goat/config/config.toml
