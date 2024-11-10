@@ -2,7 +2,7 @@ name: goat-regtest
 
 services:
   goat-deploy-thegraph:
-    image: goatnetwork/goat-deploy-thegraph:0.1.6
+    image: goatnetwork/goat-deploy-thegraph:0.1.7
     container_name: goat-deploy-thegraph
     depends_on:
       - graph-node
