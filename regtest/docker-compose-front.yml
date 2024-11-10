@@ -23,6 +23,7 @@ services:
       GOAT_URL: http://goat-regtest-goat-node:1317
       GETH_RPC_URL: http://goat-regtest-geth-node:8545
       BRIDGE_CONTRACT_ADDRESS: 0xbc10000000000000000000000000000000000003
+      MEM_POOL_URL: https://mempool.space/testnet
     depends_on:
       mysql:
         condition: service_healthy
