@@ -4,9 +4,6 @@ services:
   goat-deploy-thegraph:
     image: goatnetwork/goat-deploy-thegraph:0.1.8
     container_name: goat-deploy-thegraph
-    depends_on:
-      ipfs:
-        condition: service_healthy
     networks:
       - goat_network
   graph-node:
