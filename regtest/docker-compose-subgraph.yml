@@ -2,10 +2,11 @@ name: goat-regtest
 
 services:
   goat-deploy-thegraph:
-    image: goatnetwork/goat-deploy-thegraph:0.1.7
+    image: goatnetwork/goat-deploy-thegraph:0.1.8
     container_name: goat-deploy-thegraph
     depends_on:
-      - graph-node
+      ipfs:
+        condition: service_healthy
     networks:
       - goat_network
   graph-node:
@@ -33,6 +34,11 @@ services:
   ipfs:
     image: ipfs/go-ipfs:v0.4.23
     container_name: goat-regtest-graph-ipfs
+    healthcheck:
+      test: [ "CMD", "wget", "--spider", "-q", "http://localhost:5001/api/v0/id" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     networks:
       - goat_network
     ports:

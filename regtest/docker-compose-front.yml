@@ -24,8 +24,17 @@ services:
       GETH_RPC_URL: http://goat-regtest-geth-node:8545
       BRIDGE_CONTRACT_ADDRESS: 0xbc10000000000000000000000000000000000003
       MEM_POOL_URL: https://mempool.space/testnet
+    healthcheck:
+      test: [ "CMD", "wget", "--spider", "-q", "http://localhost:3001" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     depends_on:
       mysql:
+        condition: service_healthy
+      geth:
+        condition: service_healthy
+      goat:
         condition: service_healthy
     networks:
       - goat_network
@@ -34,6 +43,9 @@ services:
     image: goatnetwork/bridge-dev:0.1.15
     container_name: bridge-dev
     platform: linux/amd64
+    depends_on:
+      engine-api-dev:
+        condition: service_healthy
     environment:
       FETCH_BASE_URL: "http://localhost:3001/api"
     ports:
