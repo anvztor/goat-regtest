@@ -2,7 +2,7 @@ name: goat-regtest
 
 services:
   engine-api-dev:
-    image: goatnetwork/bridge-api-devnet:0.1.10
+    image: goatnetwork/bridge-api-devnet:0.1.11
     container_name: bridge-api-devnet
     platform: linux/amd64
     ports:
