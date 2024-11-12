@@ -24,6 +24,7 @@ services:
       GETH_RPC_URL: http://goat-regtest-geth-node:8545
       BRIDGE_CONTRACT_ADDRESS: 0xbc10000000000000000000000000000000000003
       MEM_POOL_URL: https://mempool.space/testnet
+      FAUCET_PRIVATE_KEYS: 0x59c6995e998f97a5a0044966f0945389dc9e86dae88c7a8412f4603b6b78690d
     healthcheck:
       test: [ "CMD", "wget", "--spider", "-q", "http://localhost:3001" ]
       interval: 10s
