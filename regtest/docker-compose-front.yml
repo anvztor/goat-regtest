@@ -55,7 +55,7 @@ services:
       - goat_network
 
   unisat-server-proxy:
-    image: goatnetwork/unisat-server-proxy:0.1
+    image: goatnetwork/unisat-server-proxy:0.3
     container_name: unisat-server-proxy
     platform: linux/amd64
     ports:
@@ -66,6 +66,8 @@ services:
       BITCOIN_HOST: "bitcoin-regtest"
       BITCOIN_USERNAME: "test"
       BITCOIN_PASSWORD: "test"
+      BITCOIN_AUTOMATIC_MINING: 0
+      BITCOIN_AUTOMATIC_MINING_BLOCK: 1
     networks:
       - goat_network
 
