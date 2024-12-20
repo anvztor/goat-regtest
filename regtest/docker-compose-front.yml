@@ -41,7 +41,7 @@ services:
       - goat_network
 
   engine-dev:
-    image: goatnetwork/bridge-dev:0.1.15
+    image: goatnetwork/bridge-dev:0.1.16
     container_name: bridge-dev
     platform: linux/amd64
     depends_on:
