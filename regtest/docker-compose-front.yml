@@ -2,7 +2,7 @@ name: goat-regtest
 
 services:
   engine-api-dev:
-    image: goatnetwork/bridge-api-devnet:0.1.15
+    image: goatnetwork/bridge-api-devnet:v20241227_1
     container_name: bridge-api-devnet
     platform: linux/amd64
     ports:
@@ -41,7 +41,7 @@ services:
       - goat_network
 
   engine-dev:
-    image: goatnetwork/bridge-dev:0.1.16
+    image: goatnetwork/bridge-dev:v20241227_1
     container_name: bridge-dev
     platform: linux/amd64
     depends_on:
