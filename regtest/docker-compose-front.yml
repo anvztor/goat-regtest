@@ -57,7 +57,8 @@ services:
       - goat_network
 
   unisat-server-proxy:
-    image: goatnetwork/unisat-server-proxy:0.3
+    image: goatnetwork/unisat-server-proxy:0.3.1
+    platform: linux/amd64
     container_name: unisat-server-proxy
     ports:
       - "3009:3009"
