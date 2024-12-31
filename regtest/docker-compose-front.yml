@@ -25,6 +25,8 @@ services:
       BRIDGE_CONTRACT_ADDRESS: 0xbc10000000000000000000000000000000000003
       MEM_POOL_URL: https://mempool.space/testnet
       FAUCET_PRIVATE_KEYS: 0x59c6995e998f97a5a0044966f0945389dc9e86dae88c7a8412f4603b6b78690d
+      REG_TEST_MINING_TIME: 30000
+      GETH_CHAIN_ID: 0xBEAF
     healthcheck:
       test: [ "CMD", "wget", "--spider", "-q", "http://localhost:3001" ]
       interval: 10s
@@ -57,7 +59,6 @@ services:
   unisat-server-proxy:
     image: goatnetwork/unisat-server-proxy:0.3
     container_name: unisat-server-proxy
-    platform: linux/amd64
     ports:
       - "3009:3009"
     environment:
