@@ -13,12 +13,8 @@ services:
       timeout: 5s
       retries: 5
     command:
-      - --http
-      - --http.api=eth,net,web3
-      - --http.addr=0.0.0.0
-      - --http.vhosts=*
-      - --http.corsdomain=*
-      - --syncmode=full
+      - --gcmode=archive
+      - --goat.preset=rpc
       - --nodiscover
     ports:
       - 8545:8545
@@ -42,12 +38,9 @@ services:
       retries: 5
     command:
       - start
-      - --home
-      - /goat
-      - --goat.geth
-      - /geth/geth.ipc
-      - --api.enable
-      - --api.address=tcp://0.0.0.0:1317
+      - --home=/geth
+      - --regtest 
+      - --goat.geth=/geth/geth.ipc
     ports:
       - 9090:9090
       - 26657:26657
