@@ -16,6 +16,6 @@ jq --argjson new_data "$VOTERB" '.Relayer.voters += [$new_data]' config.json > t
 VOTERC=$(./build/goatd --home ./data/goat modgen relayer keygen --output 3.json)
 jq --argjson new_data "$VOTERC" '.Relayer.voters += [$new_data]' config.json > tmp.json && mv tmp.json config.json
 
-npm --prefix submodule/contracts run genesis -- --param ../../config.json --faucet $OWNER --amount 1000
+npm --prefix submodule/contracts run genesis -- --param ../../config.json
 ./build/geth init --state.scheme hash --cache.preimages --datadir ./data/geth ./submodule/contracts/genesis/regtest.json
 ./submodule/goat/contrib/scripts/genesis.sh ./data/goat ./config.json
