@@ -69,7 +69,11 @@ docker-relayer:
 	make -f Makefile.relayer -C submodule/relayer docker-build-all || true
 	rm submodule/relayer/Makefile.relayer
 
-reinit-genesis: init
+clean-genesis:
+	rm -rf ./initialized/goat
+	rm -rf ./initialized/geth
+
+reinit-genesis: clean-genesis init
 	mv ./data/* ./initialized/
 	sed -i '' 's/address = "localhost:9090"/address = "0.0.0.0:9090"/' ./initialized/goat/config/app.toml
 	sed -i '' 's|node = "tcp://localhost:26657"|node = "tcp://0.0.0.0:26657"|' ./initialized/goat/config/client.toml
