@@ -6,6 +6,33 @@ services:
       file: docker-compose-bitcoin.yml
       service: bitcoin-core
 
+  electrs:
+    extends:
+      file: docker-compose-bitcoin.yml
+      service: electrs
+    depends_on:
+      - bitcoin-core
+
+  mempool-db:
+    extends:
+      file: docker-compose-bitcoin.yml
+      service: mempool-db
+
+  mempool-backend:
+    extends:
+      file: docker-compose-bitcoin.yml
+      service: mempool-backend
+    depends_on:
+      - mempool-db
+      - electrs
+
+  mempool-frontend:
+    extends:
+      file: docker-compose-bitcoin.yml
+      service: mempool-frontend
+    depends_on:
+      - mempool-backend
+
   geth:
     extends:
       file: docker-compose-goat-geth.yml
