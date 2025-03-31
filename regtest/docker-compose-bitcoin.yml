@@ -41,17 +41,18 @@ services:
       - goat_network
 
   electrs:
-    image: vulpemventures/electrs:latest
+    image: anvztor/electrs:latest
     container_name: bitcoin-electrs
     entrypoint: ["/bin/sh", "-c"]
     command:
       - |
-        electrs -v --network regtest --daemon-dir /home/bitcoin/.bitcoin --daemon-rpc-addr bitcoin-regtest:18443 --daemon-auth test:test --http-addr 0.0.0.0:3002 --cookie-file /home/bitcoin/.bitcoin/.cookie --electrum-rpc-addr 0.0.0.0:60401 --cors '*'
+        /bin/electrs -vvvv --network regtest --daemon-dir /home/bitcoin/.bitcoin --daemon-rpc-addr bitcoin-regtest:18443 --http-addr 0.0.0.0:3002 --cookie test:test --db-dir /home/electrs/db --electrum-rpc-addr 0.0.0.0:60401 --cors '*' --address-search --index-unspendables
     depends_on:
       - bitcoin-core
     ports:
       - "60401:60401"
       - "3002:3002"
+      - "50001:50001"
     volumes:
       - ./data/bitcoin:/home/bitcoin/.bitcoin
       - ./data/electrs:/home/electrs/db
