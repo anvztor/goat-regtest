@@ -13,3 +13,6 @@
 [submodule "submodule/relayer"]
 	path = submodule/relayer
 	url = https://github.com/GOATNetwork/goat-relayer.git
+[submodule "submodule/tss"]
+	path = submodule/tss
+	url = https://github.com/GOATNetwork/tss.git
