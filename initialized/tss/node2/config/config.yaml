@@ -1,0 +1,30 @@
+nodeId: node-2
+peerId: "12D3KooWJybswi9fFpjKwgnr6AiQPpcHXPDnqzfoHpwtwDxNJovd"
+address: "0xcc00000000000000000000000000000000000002"
+logLevel: debug
+p2p:
+  listenAddr: /ip4/0.0.0.0/tcp/9009
+  bootstrapPeers:
+    - /ip4/192.168.12.91/tcp/9009/p2p/12D3KooWFaRMEjkxJjfRdRnEZm477YFgUWmezhA8xgw2WTQMDsoC
+    - /ip4/192.168.12.92/tcp/9009/p2p/12D3KooWJybswi9fFpjKwgnr6AiQPpcHXPDnqzfoHpwtwDxNJovd
+    - /ip4/192.168.12.93/tcp/9009/p2p/12D3KooWCepEJctQMZ7iCWs5VkdKYr1g95ZxCShRXGWvojJN5Zyb
+  enableMDNS: true
+tss:
+  oldThreshold: 1
+  threshold: 1
+  totalParties: 3
+  keyId: "1"
+  newKeyId: "2"
+  keysDir: /app/data/keys
+  chainType: EVM
+  timeout: 300s
+  participants:
+    - peerId: "12D3KooWFaRMEjkxJjfRdRnEZm477YFgUWmezhA8xgw2WTQMDsoC"
+      key: 1
+      moniker: node-1
+    - peerId: "12D3KooWJybswi9fFpjKwgnr6AiQPpcHXPDnqzfoHpwtwDxNJovd"
+      key: 2
+      moniker: node-2
+    - peerId: "12D3KooWCepEJctQMZ7iCWs5VkdKYr1g95ZxCShRXGWvojJN5Zyb"
+      key: 3
+      moniker: node-3
