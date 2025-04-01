@@ -1,42 +1,42 @@
 services:
   goat-network-tss-node1:
     build: .
-    image: goat-network/goat-network-tss:dev
+    image: anvztor/tss:dev
     container_name: goat-network-tss-node1
     ports:
       - "8081:8080" # http port
       - "9091:9009" # p2p port
     volumes:
-      - ./local-test/node1/data:/app/data
-      - ./local-test/node1/config:/app/config
+      - ./data/tss/node1/data:/app/data
+      - ./data/tss/node1/config:/app/config
     networks:
       goat_network:
         ipv4_address: 172.31.32.91
 
   goat-network-tss-node2:
     build: .
-    image: goat-network/goat-network-tss:dev
+    image: anvztor/tss:dev
     container_name: goat-network-tss-node2
     ports:
       - "8082:8080" # http port
       - "9092:9009" # p2p port
     volumes:
-      - ./local-test/node2/data:/app/data
-      - ./local-test/node2/config:/app/config
+      - ./data/tss/node2/data:/app/data
+      - ./data/tss/node2/config:/app/config
     networks:
       goat_network:
         ipv4_address: 172.31.32.92
 
   goat-network-tss-node3:
     build: .
-    image: goat-network/goat-network-tss:dev
+    image: anvztor/tss:dev
     container_name: goat-network-tss-node3
     ports:
       - "8083:8080" # http port
       - "9093:9009" # p2p port
     volumes:
-      - ./local-test/node3/data:/app/data
-      - ./local-test/node3/config:/app/config
+      - ./data/tss/node3/data:/app/data
+      - ./data/tss/node3/config:/app/config
     networks:
       goat_network:
         ipv4_address: 172.31.32.93
