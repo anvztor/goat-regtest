@@ -44,6 +44,14 @@ services:
       file: docker-compose-goat-geth.yml
       service: goat
 
+  deploy-contract:
+    depends_on:
+      geth:
+        condition: service_healthy  
+    extends:
+      file: docker-compose-goat-geth.yml
+      service: deploy-contract
+
   goat-network-tss-node1:
     extends:
       file: docker-compose-tss.yml
@@ -64,7 +72,7 @@ services:
       goat:
         condition: service_healthy
       goat-network-tss-node1:
-        condition: service_started
+        condition: service_healthy
     extends:
       file: docker-compose-relayer.yml
       service: goat-relayer-1
@@ -72,7 +80,6 @@ services:
   goat-relayer-2:
     depends_on:
       - goat-relayer-1
-      - goat-network-tss-node2
     extends:
       file: docker-compose-relayer.yml
       service: goat-relayer-2
@@ -80,7 +87,6 @@ services:
   goat-relayer-3:
     depends_on:
       - goat-relayer-1
-      - goat-network-tss-node3
     extends:
       file: docker-compose-relayer.yml
       service: goat-relayer-3

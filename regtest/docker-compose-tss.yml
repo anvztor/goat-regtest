@@ -1,8 +1,12 @@
 services:
   goat-network-tss-node1:
-    build: .
     image: anvztor/tss:dev
     container_name: goat-network-tss-node1
+    healthcheck:
+      test: [ "CMD", "wget", "--spider", "-q", "http://localhost:8080/api/v1/evm/address?kdd=1" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     ports:
       - "8081:8080" # http port
       - "9091:9009" # p2p port
@@ -14,9 +18,13 @@ services:
         ipv4_address: 172.31.32.91
 
   goat-network-tss-node2:
-    build: .
     image: anvztor/tss:dev
     container_name: goat-network-tss-node2
+    healthcheck:
+      test: [ "CMD", "wget", "--spider", "-q", "http://localhost:8080/api/v1/evm/address?kdd=1" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     ports:
       - "8082:8080" # http port
       - "9092:9009" # p2p port
@@ -28,9 +36,13 @@ services:
         ipv4_address: 172.31.32.92
 
   goat-network-tss-node3:
-    build: .
     image: anvztor/tss:dev
     container_name: goat-network-tss-node3
+    healthcheck:
+      test: [ "CMD", "wget", "--spider", "-q", "http://localhost:8080/api/v1/evm/address?kdd=1" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     ports:
       - "8083:8080" # http port
       - "9093:9009" # p2p port
