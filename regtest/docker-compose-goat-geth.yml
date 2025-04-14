@@ -73,7 +73,7 @@ services:
     command: 
       - |
         cd /app
-        git clone https://github.com/liqingnz/btc-timelock-contracts.git .
+        git clone https://github.com/GOATNetwork/safebox-contract.git .
         forge install
         forge script script/Deploy.sol --rpc-url http://geth:8545 --broadcast --legacy
     depends_on:
