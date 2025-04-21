@@ -3,7 +3,6 @@ name: goat-regtest
 services:
   goat-relayer-1:
     image: anvztor/relayer:latest
-    pull_policy: always
     container_name: goat-relayer-1
     env_file:
       - .env

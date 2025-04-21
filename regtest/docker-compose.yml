@@ -91,45 +91,45 @@ services:
       file: docker-compose-relayer.yml
       service: goat-relayer-3
 
-  engine-api-dev:
-    extends:
-      file: docker-compose-front.yml
-      service: engine-api-dev
+  # engine-api-dev:
+  #   extends:
+  #     file: docker-compose-front.yml
+  #     service: engine-api-dev
 
-  engine-dev:
-    extends:
-      file: docker-compose-front.yml
-      service: engine-dev
+  # engine-dev:
+  #   extends:
+  #     file: docker-compose-front.yml
+  #     service: engine-dev
 
-  unisat-server-proxy:
-    extends:
-      file: docker-compose-front.yml
-      service: unisat-server-proxy
+  # unisat-server-proxy:
+  #   extends:
+  #     file: docker-compose-front.yml
+  #     service: unisat-server-proxy
 
-  mysql:
-    extends:
-      file: docker-compose-front.yml
-      service: mysql
+  # mysql:
+  #   extends:
+  #     file: docker-compose-front.yml
+  #     service: mysql
 
-  goat-deploy-thegraph:
-    extends:
-      file: docker-compose-subgraph.yml
-      service: goat-deploy-thegraph
+  # goat-deploy-thegraph:
+  #   extends:
+  #     file: docker-compose-subgraph.yml
+  #     service: goat-deploy-thegraph
 
-  graph-node:
-    extends:
-      file: docker-compose-subgraph.yml
-      service: graph-node
+  # graph-node:
+  #   extends:
+  #     file: docker-compose-subgraph.yml
+  #     service: graph-node
 
-  ipfs:
-    extends:
-      file: docker-compose-subgraph.yml
-      service: ipfs
+  # ipfs:
+  #   extends:
+  #     file: docker-compose-subgraph.yml
+  #     service: ipfs
 
-  postgres:
-    extends:
-      file: docker-compose-subgraph.yml
-      service: postgres
+  # postgres:
+  #   extends:
+  #     file: docker-compose-subgraph.yml
+  #     service: postgres
 
 networks:
   goat_network:

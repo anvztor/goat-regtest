@@ -30,10 +30,10 @@ services:
           bitcoin-cli -regtest -rpcuser=test -rpcpassword=test -generate 1
         fi
 
-        # Generate 1 block every 2 minutes by default, modify the interval as needed
+        # Generate 1 block every 10 minutes by default, modify the interval as needed
         while true; do
           bitcoin-cli -regtest -rpcuser=test -rpcpassword=test -generate 1
-          sleep 120
+          sleep 300
         done
 
         tail -f /dev/null

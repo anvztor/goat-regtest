@@ -67,7 +67,7 @@ services:
       - PRIVATE_KEY=0xe918dfc447c7c21100b1501ec5886f29e6537718589812326e0b9941b1812aa4
       - BSC_ETHERSCAN_API_KEY=1
     volumes:
-      - ./app:/app
+      - ./data/deploy-contract:/app
     working_dir: /app
     entrypoint: ["/bin/sh", "-c"]
     command: 
