@@ -45,7 +45,7 @@ services:
         cd /app
         git clone https://github.com/GOATNetwork/dogecoin-bridge-contract.git .
         forge install
-        forge script script/Deploy.sol --rpc-url http://geth:8545 --broadcast --legacy
+        forge script script/Deploy.s.sol --rpc-url http://geth:8545 --broadcast --legacy
     depends_on:
       geth:
         condition: service_healthy
