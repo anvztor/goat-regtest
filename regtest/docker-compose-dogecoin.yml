@@ -11,7 +11,7 @@ services:
       - "22556:22556"
       - "28332:28332"
     volumes:
-      - ./dogecoin-data:/root/.dogecoin
+      - ./data/dogecoin-data:/root/.dogecoin
     restart: unless-stopped
     network_mode: host
 
@@ -32,6 +32,6 @@ services:
       - MINER_WIF=
     volumes:
       - ./scripts/miner_entrypoint.sh:/usr/local/bin/miner_entrypoint.sh:ro
-      - ./dogecoin-data:/root/.dogecoin
+      - ./data/dogecoin-data:/root/.dogecoin
     entrypoint: ["bash", "/usr/local/bin/miner_entrypoint.sh"]
     network_mode: host

@@ -4,6 +4,13 @@ services:
       file: docker-compose-dogecoin.yml
       service: dogecoin-node
 
+  dogecoin-miner:
+    depends_on:
+      - dogecoin-node
+    extends:
+      file: docker-compose-dogecoin.yml
+      service: dogecoin-miner
+
   geth:
     depends_on:
       - dogecoin-node

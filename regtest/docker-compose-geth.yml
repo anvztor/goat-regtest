@@ -8,14 +8,17 @@ services:
     stop_grace_period: 30s
     restart: unless-stopped
     healthcheck:
-      test: ["CMD-SHELL", "geth attach --exec eth.blockNumber"]
-      interval: 5s
+      start_period: 30s
+      interval: 10s
       timeout: 5s
       retries: 5
+      test: ["CMD-SHELL", "geth attach --exec 'eth.blockNumber' ipc:/tmp/geth.ipc > /dev/null || exit 1"]
     command:
       - --dev
       - --http
       - --http.api=personal,eth,net,web3
+      - --http.addr=0.0.0.0
+      - --dev.period=1
     ports:
       - 8545:8545
       - 8551:8551
