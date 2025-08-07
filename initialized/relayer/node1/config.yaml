@@ -1,0 +1,68 @@
+# Dogecoin Relayer configuration example
+# Copy this file to each node directory as config.yaml and adjust values as needed.
+
+log:
+  level: "info"         # debug|info|warn|error|fatal|panic
+
+sqlite:
+  folder: "/app/data"   # SQLite database folder inside the container (must match the volume mount in compose)
+
+gorm:
+  log_level: "info"      # silent|error|warn|info
+  max_idle_conns: 10
+  max_open_conns: 100
+  conn_max_lifetime: 3600  # seconds
+
+p2p:
+  enabled: true
+  listen_addr: "/ip4/0.0.0.0/tcp/4001"
+  external_addr: ""       # Public addresses to announce (comma-separated); leave empty if not needed
+  bootstrap_peers: []      # Leave empty on the first node; others use the first node's multiaddr
+  enable_mdns: true
+  listen_wait_seconds: 30
+  connection_wait_seconds: 120
+  key_dir: "/app/p2p"
+
+http:
+  enabled: true
+  port: 8080              # Must match the internal container port exposed in compose
+
+doge:
+  rpc_url: "http://dogecoin-node:22555"  # RPC endpoint of the Dogecoin node defined in compose
+  rpc_user: "gigawallet"
+  rpc_password: "gigawallet"
+  start_height: 0
+  confirmations: 1
+  network_type: "regtest"           # one of: mainnet | testnet | regtest
+
+scan:
+  enabled: true
+  interval: 60            # seconds, scan interval
+  timeout: 30             # request timeout in seconds
+  range: 1000             # blocks per scan batch
+
+consensus:
+  enabled: false          # Set to true if integration with an EVM chain is required, then complete the fields below
+  rpc: "http://geth:8545"
+  chain_id: 1337
+  event_detection:
+    enabled: false
+    contract_bridge: "0x0000000000000000000000000000000000000000"
+    contract_entry_point: "0x0000000000000000000000000000000000000000"
+    abi_path: "/app/data/abi.json"
+    last_scanned_block: 0
+    confirmation_blocks: 2
+    batch_size: 1000
+    scan_interval_sec: 5
+
+tss:
+  enabled: true
+  url: "http://goat-network-tss-node1:8080"  # Each relayer node points to its dedicated TSS endpoint
+  kdd: 10
+  timeout: 300           # seconds
+
+metrics:
+  enabled: true
+  collect_system_metrics: true
+  system_collect_interval: 10
+  enable_detailed_metrics: false

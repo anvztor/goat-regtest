@@ -5,9 +5,10 @@ services:
     image: anvztor/dogecoin-relayer:latest
     container_name: dogecoin-relayer-01
     env_file:
-      - ./data/node-01/.env
+      - ./data/relayer/node1/.env
     environment:
       - RELAYER_PRIVATE_KEY=3ae009be18b897c016a05e79eae77adaff96f42bfc5c41aee696dd034bd52485
+      - PROPOSER_PRIVATE_KEY=3ae009be18b897c016a05e79eae77adaff96f42bfc5c41aee696dd034bd52485
       - RELAYER_BLS_SK=0fd5fff3d663db00001552d7e9c4040af4a48eec6b6bd487b23946c763b85444
       - TSS_ENDPOINT=http://goat-network-tss-node1:8080
       - CONTRACT_TASK_MANAGER=0x6827D591faDa19A1274Df0Ab2608901AaaEA14C9
@@ -18,9 +19,9 @@ services:
       - "8181:8080"
       - "4011:4001"
     volumes:
-      - ./data/node-01/db:/app/data
-      - ./data/node-01/p2p:/app/p2p
-      - ./data/node-01/config.yaml:/app/config/config.yaml
+      - ./data/relayer/node1/db:/app/data
+      - ./data/relayer/node1/p2p:/app/p2p
+      - ./data/relayer/node1/config.yaml:/app/config/config.yaml
     networks:
       goat_network:
         ipv4_address: 172.31.32.112
@@ -32,10 +33,11 @@ services:
         condition: service_started
     container_name: dogecoin-relayer-02
     env_file:
-      - ./data/node-02/.env
+      - ./data/relayer/node2/.env
     environment:
       - LIBP2P_BOOT_NODES=/ip4/172.31.32.112/tcp/4001/p2p/12D3KooWEyrTn9ZD2Kidma4EKZ7ajaa7XDdje822WNZBRxpwQBYx
       - RELAYER_PRIVATE_KEY=cabee56de401798749faddaa98ae6b46eda2d152aca0c7ebd2c3d84fd39e3199
+      - PROPOSER_PRIVATE_KEY=cabee56de401798749faddaa98ae6b46eda2d152aca0c7ebd2c3d84fd39e3199
       - RELAYER_BLS_SK=5052000b478e7df866ecb7458fc4369f0fb912070f8c440de36a2bc7a60180fb
       - TSS_ENDPOINT=http://goat-network-tss-node2:8080
       - CONTRACT_TASK_MANAGER=0x6827D591faDa19A1274Df0Ab2608901AaaEA14C9
@@ -46,9 +48,9 @@ services:
       - "8182:8080"
       - "4012:4001"
     volumes:
-      - ./data/node-02/db:/app/data
-      - ./data/node-02/p2p:/app/p2p
-      - ./data/node-02/config.yaml:/app/config/config.yaml
+      - ./data/relayer/node2/db:/app/data
+      - ./data/relayer/node2/p2p:/app/p2p
+      - ./data/relayer/node2/config.yaml:/app/config/config.yaml
     networks:
       goat_network:
         ipv4_address: 172.31.32.113
@@ -60,10 +62,11 @@ services:
         condition: service_started
     container_name: dogecoin-relayer-03
     env_file:
-      - ./data/node-03/.env
+      - ./data/relayer/node3/.env
     environment:
       - LIBP2P_BOOT_NODES=/ip4/172.31.32.112/tcp/4001/p2p/12D3KooWEyrTn9ZD2Kidma4EKZ7ajaa7XDdje822WNZBRxpwQBYx
       - RELAYER_PRIVATE_KEY=8bda3b22eeeeff76de1b0d82a18235c1f1673a6b65e716e2d3fcbff56b8519de
+      - PROPOSER_PRIVATE_KEY=8bda3b22eeeeff76de1b0d82a18235c1f1673a6b65e716e2d3fcbff56b8519de
       - RELAYER_BLS_SK=20adeb98d60d3edfcb8f07e9f51b39230a3c380fed4649b50c7a6b62228ccebd
       - TSS_ENDPOINT=http://goat-network-tss-node3:8080
       - CONTRACT_TASK_MANAGER=0x6827D591faDa19A1274Df0Ab2608901AaaEA14C9
@@ -74,9 +77,9 @@ services:
       - "8183:8080"
       - "4013:4001"
     volumes:
-      - ./data/node-03/db:/app/data
-      - ./data/node-03/p2p:/app/p2p
-      - ./data/node-03/config.yaml:/app/config/config.yaml
+      - ./data/relayer/node3/db:/app/data
+      - ./data/relayer/node3/p2p:/app/p2p
+      - ./data/relayer/node3/config.yaml:/app/config/config.yaml
     networks:
       goat_network:
         ipv4_address: 172.31.32.114
