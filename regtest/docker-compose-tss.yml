@@ -1,3 +1,5 @@
+name: dogecoin-regtest
+
 services:
   goat-network-tss-node1:
     image: anvztor/tss:dev

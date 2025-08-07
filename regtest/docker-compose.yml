@@ -1,55 +1,22 @@
 services:
-  bitcoin-core:
+  dogecoin-node:
     extends:
-      file: docker-compose-bitcoin.yml
-      service: bitcoin-core
-
-  electrs:
-    extends:
-      file: docker-compose-bitcoin.yml
-      service: electrs
-    depends_on:
-      - bitcoin-core
-
-  mempool-db:
-    extends:
-      file: docker-compose-bitcoin.yml
-      service: mempool-db
-
-  mempool-backend:
-    extends:
-      file: docker-compose-bitcoin.yml
-      service: mempool-backend
-    depends_on:
-      - mempool-db
-      - electrs
-
-  mempool-frontend:
-    extends:
-      file: docker-compose-bitcoin.yml
-      service: mempool-frontend
-    depends_on:
-      - mempool-backend
+      file: docker-compose-dogecoin.yml
+      service: dogecoin-node
 
   geth:
-    extends:
-      file: docker-compose-goat-geth.yml
-      service: geth
-
-  goat:
     depends_on:
-      - bitcoin-core
-      - geth
+      - dogecoin-node
     extends:
-      file: docker-compose-goat-geth.yml
-      service: goat
+      file: docker-compose-geth.yml
+      service: geth
 
   deploy-contract:
     depends_on:
       geth:
         condition: service_healthy  
     extends:
-      file: docker-compose-goat-geth.yml
+      file: docker-compose-geth.yml
       service: deploy-contract
 
   goat-network-tss-node1:
@@ -90,46 +57,6 @@ services:
     extends:
       file: docker-compose-relayer.yml
       service: goat-relayer-3
-
-  # engine-api-dev:
-  #   extends:
-  #     file: docker-compose-front.yml
-  #     service: engine-api-dev
-
-  # engine-dev:
-  #   extends:
-  #     file: docker-compose-front.yml
-  #     service: engine-dev
-
-  # unisat-server-proxy:
-  #   extends:
-  #     file: docker-compose-front.yml
-  #     service: unisat-server-proxy
-
-  # mysql:
-  #   extends:
-  #     file: docker-compose-front.yml
-  #     service: mysql
-
-  # goat-deploy-thegraph:
-  #   extends:
-  #     file: docker-compose-subgraph.yml
-  #     service: goat-deploy-thegraph
-
-  # graph-node:
-  #   extends:
-  #     file: docker-compose-subgraph.yml
-  #     service: graph-node
-
-  # ipfs:
-  #   extends:
-  #     file: docker-compose-subgraph.yml
-  #     service: ipfs
-
-  # postgres:
-  #   extends:
-  #     file: docker-compose-subgraph.yml
-  #     service: postgres
 
 networks:
   goat_network:

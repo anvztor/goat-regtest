@@ -1,0 +1,37 @@
+name: dogecoin-regtest
+
+services:
+  # Dogecoin Core Node
+  dogecoin-node:
+    image: dogeorg/dogecoin-node:ubuntu
+    container_name: dogecoin-node
+    command: ["dogecoind", "-regtest", "-printtoconsole", "-rpcallowip=0.0.0.0/0", "-rpcuser=gigawallet", "-rpcpassword=gigawallet", "-rpcport=22555"]
+    ports:
+      - "22555:22555"
+      - "22556:22556"
+      - "28332:28332"
+    volumes:
+      - ./dogecoin-data:/root/.dogecoin
+    restart: unless-stopped
+    network_mode: host
+
+  # Automatic miner that generates blocks at a fixed interval
+  dogecoin-miner:
+    image: dogeorg/dogecoin-node:ubuntu
+    container_name: dogecoin-miner
+    depends_on:
+      - dogecoin-node
+    environment:
+      - rpcuser=gigawallet
+      - rpcpassword=gigawallet
+      - rpcport=22555
+      - MINING_INTERVAL=30   # seconds between blocks
+      - PREMINE_BLOCKS=200    # one-time blocks mined on first start
+      # Optionally supply your own address & WIF (leave blank to auto-generate)
+      - MINER_ADDRESS=
+      - MINER_WIF=
+    volumes:
+      - ./scripts/miner_entrypoint.sh:/usr/local/bin/miner_entrypoint.sh:ro
+      - ./dogecoin-data:/root/.dogecoin
+    entrypoint: ["bash", "/usr/local/bin/miner_entrypoint.sh"]
+    network_mode: host

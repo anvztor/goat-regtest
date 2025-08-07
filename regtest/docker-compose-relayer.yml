@@ -1,8 +1,8 @@
-name: goat-regtest
+name: dogecoin-regtest
 
 services:
   goat-relayer-1:
-    image: anvztor/relayer:latest
+    image: anvztor/dogecoin-relayer:latest
     container_name: goat-relayer-1
     env_file:
       - .env
@@ -25,7 +25,7 @@ services:
         ipv4_address: 172.31.32.112
 
   goat-relayer-2:
-    image: anvztor/relayer:latest
+    image: anvztor/dogecoin-relayer:latest
     depends_on:
       goat-relayer-1:
         condition: service_started
@@ -52,7 +52,7 @@ services:
         ipv4_address: 172.31.32.113
 
   goat-relayer-3:
-    image: anvztor/relayer:latest
+    image: anvztor/dogecoin-relayer:latest
     depends_on:
       goat-relayer-1:
         condition: service_started
