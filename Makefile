@@ -1,11 +1,10 @@
-init: precheck clean goat geth contracts
+init: precheck clean
 	cp example.json config.json
 	sh ./init.sh
 	command -v pm2 || npm install pm2 -g
 
 start:
-	pm2 start ./build/geth -- --datadir ./data/geth --gcmode=archive --goat.preset=rpc --nodiscover
-	pm2 start ./build/goatd -- start --home ./data/goat --regtest --goat.geth ./data/geth/geth.ipc
+	pm2 start geth -- --dev --http --http.api=personal,eth,net,web3
 
 stop:
 	pm2 delete all || echo "stopped"
@@ -14,35 +13,16 @@ stop:
 logs:
 	pm2 logs all
 
-goat:
-	mkdir -p build data/goat
-	make -C submodule/goat build
-	cp submodule/goat/build/goatd build
 
-geth:
-	mkdir -p build data/geth
-	make -C submodule/geth geth
-	cp submodule/geth/build/bin/geth build
 
-contracts:
-	npm ci --engine-strict --prefix submodule/contracts
-	npm --prefix submodule/contracts --engine-strict run compile
 
 clean: stop
 	rm -rf build
-	rm -rf data/goat data/geth
+	rm -rf data/geth
 	rm -rf config.json
-	rm -rf submodule/contracts/artifacts
-	rm -rf submodule/contracts/cache
-	rm -rf submodule/contracts/genesis/regtest-config.json
-	rm -rf submodule/contracts/genesis/regtest.json
-	rm -rf submodule/contracts/typechain-types
-	rm -rf submodule/contracts/node_modules
-	rm -rf submodule/goat/build
-	rm -rf submodule/geth/build/bin
-
+		
 web3:
-	@./build/geth attach --datadir ./data/geth
+	@geth attach --datadir ./data/geth
 
 precheck:
 	node --version
@@ -54,35 +34,10 @@ precheck:
 update:
 	git submodule update
 
-docker-goat:
-	cp Makefile.goat submodule/goat/Makefile.goat
-	make -f Makefile.goat -C submodule/goat docker-build-all || true
-	rm submodule/goat/Makefile.goat
 
-docker-geth:
-	cp Makefile.geth submodule/geth/Makefile.geth
-	make -f Makefile.geth -C submodule/geth docker-build-all || true
-	rm submodule/geth/Makefile.geth
 
 docker-relayer:
 	cp Makefile.relayer submodule/relayer/Makefile.relayer
 	make -f Makefile.relayer -C submodule/relayer docker-build-all || true
 	rm submodule/relayer/Makefile.relayer
 
-clean-genesis:
-	rm -rf ./initialized/goat
-	rm -rf ./initialized/geth
-
-reinit-genesis: clean-genesis init
-	mv ./data/* ./initialized/
-	sed -i '' 's/address = "localhost:9090"/address = "0.0.0.0:9090"/' ./initialized/goat/config/app.toml
-	sed -i '' 's|node = "tcp://localhost:26657"|node = "tcp://0.0.0.0:26657"|' ./initialized/goat/config/client.toml
-	sed -i '' \
-		-e 's|laddr = "tcp://127.0.0.1:26657"|laddr = "tcp://0.0.0.0:26657"|' \
-		-e 's/timeout_propose = "500ms"/timeout_propose = "1.5s"/' \
-		-e 's/timeout_propose_delta = "500ms"/timeout_propose_delta = "1s"/' \
-		-e 's/timeout_prevote = "500ms"/timeout_prevote = "1.5s"/' \
-		-e 's/timeout_precommit = "500ms"/timeout_precommit = "1s"/' \
-		-e 's/timeout_precommit_delta = "500ms"/timeout_precommit_delta = "1s"/' \
-		-e 's/timeout_commit = "1.01s"/timeout_commit = "5s"/' \
-		./initialized/goat/config/config.toml

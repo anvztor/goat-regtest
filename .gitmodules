@@ -1,18 +1,6 @@
-[submodule "submodule/contracts"]
-	path = submodule/contracts
-	url = https://github.com/goatnetwork/goat-contracts
-	branch = testnet-2
-[submodule "submodule/goat"]
-	path = submodule/goat
-	url = https://github.com/goatnetwork/goat
-	branch = testnet-2
-[submodule "submodule/geth"]
-	path = submodule/geth
-	url = https://github.com/goatnetwork/goat-geth
-	branch = testnet-2
 [submodule "submodule/relayer"]
 	path = submodule/relayer
-	url = https://github.com/GOATNetwork/goat-relayer.git
+	url = https://github.com/GOATNetwork/dogecoin-relayer.git
 [submodule "submodule/tss"]
 	path = submodule/tss
 	url = https://github.com/GOATNetwork/tss.git
