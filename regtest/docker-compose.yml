@@ -34,29 +34,27 @@ services:
       file: docker-compose-tss.yml
       service: goat-network-tss-node3
 
-  goat-relayer-1:
+  dogecoin-relayer-01:
     depends_on:
-      goat:
-        condition: service_healthy
       goat-network-tss-node1:
         condition: service_healthy
     extends:
       file: docker-compose-relayer.yml
-      service: goat-relayer-1
+      service: dogecoin-relayer-01
 
-  goat-relayer-2:
+  dogecoin-relayer-02:
     depends_on:
-      - goat-relayer-1
+      - dogecoin-relayer-01
     extends:
       file: docker-compose-relayer.yml
-      service: goat-relayer-2
+      service: dogecoin-relayer-02
 
-  goat-relayer-3:
+  dogecoin-relayer-03:
     depends_on:
-      - goat-relayer-1
+      - dogecoin-relayer-01
     extends:
       file: docker-compose-relayer.yml
-      service: goat-relayer-3
+      service: dogecoin-relayer-03
 
 networks:
   goat_network:
