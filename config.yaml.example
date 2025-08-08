@@ -28,7 +28,7 @@ http:
   port: 8080              # Must match the internal container port exposed in compose
 
 doge:
-  rpc_url: "http://dogecoin-node:22555"  # RPC endpoint of the Dogecoin node defined in compose
+  rpc_url: "dogecoin-node:22555"  # RPC endpoint of the Dogecoin node defined in compose
   rpc_user: "gigawallet"
   rpc_password: "gigawallet"
   start_height: 0
