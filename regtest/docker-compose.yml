@@ -18,6 +18,13 @@ services:
       file: docker-compose-geth.yml
       service: geth
 
+  geth-prefund:
+    depends_on:
+      - geth
+    extends:
+      file: docker-compose-geth.yml
+      service: geth-prefund
+
   deploy-contract:
     depends_on:
       geth:

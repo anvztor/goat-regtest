@@ -2,7 +2,7 @@ name: dogecoin-regtest
 
 services:
   geth:
-    image: anvztor/geth:latest
+    image: ethereum/client-go:stable
     container_name: goat-regtest-geth-node
     pull_policy: if_not_present
     stop_grace_period: 30s
@@ -12,12 +12,13 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-      test: ["CMD-SHELL", "geth attach --exec 'eth.blockNumber' ipc:/tmp/geth.ipc > /dev/null || exit 1"]
+      test: ["CMD-SHELL", "geth attach --exec 'eth.blockNumber' http://127.0.0.1:8545 > /dev/null || exit 1"]
     command:
       - --dev
       - --http
       - --http.api=personal,eth,net,web3
       - --http.addr=0.0.0.0
+      - --http.vhosts=*
       - --dev.period=1
     ports:
       - 8545:8545
@@ -52,6 +53,20 @@ services:
     depends_on:
       geth:
         condition: service_healthy
+      geth-prefund:
+        condition: service_completed_successfully
+    networks:
+      - goat_network
+
+  geth-prefund:
+    image: ethereum/client-go:stable
+    container_name: goat-regtest-geth-prefund
+    restart: "no"
+    depends_on:
+      geth:
+        condition: service_healthy
+    entrypoint: ["geth", "attach"]
+    command: ["--exec", "eth.sendTransaction({from: eth.accounts[0], to: \"0x29cF29d4b2CD6Db07f6db43243e8E43fE3DC468e\", value: \"0x0DE0B6B3A7640000\"})", "http://geth:8545"]
     networks:
       - goat_network
 
