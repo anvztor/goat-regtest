@@ -20,7 +20,8 @@ services:
 
   geth-prefund:
     depends_on:
-      - geth
+      geth:
+        condition: service_healthy
     extends:
       file: docker-compose-geth.yml
       service: geth-prefund
@@ -28,10 +29,20 @@ services:
   deploy-contract:
     depends_on:
       geth:
-        condition: service_healthy  
+        condition: service_healthy
+      geth-prefund:
+        condition: service_completed_successfully
     extends:
       file: docker-compose-geth.yml
       service: deploy-contract
+
+  setup-contract:
+    depends_on:
+      deploy-contract:
+        condition: service_completed_successfully
+    extends:
+      file: docker-compose-geth.yml
+      service: setup-contract
 
   goat-network-tss-node1:
     extends:
