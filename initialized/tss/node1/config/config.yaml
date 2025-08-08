@@ -2,13 +2,17 @@ nodeId: node-1
 peerId: "12D3KooWFaRMEjkxJjfRdRnEZm477YFgUWmezhA8xgw2WTQMDsoC"
 address: "0xcc00000000000000000000000000000000000001"
 logLevel: debug
+http:
+  port: 8080
 p2p:
   listenAddr: /ip4/0.0.0.0/tcp/9009
   bootstrapPeers:
-    - /ip4/192.168.12.91/tcp/9009/p2p/12D3KooWFaRMEjkxJjfRdRnEZm477YFgUWmezhA8xgw2WTQMDsoC
-    - /ip4/192.168.12.92/tcp/9009/p2p/12D3KooWJybswi9fFpjKwgnr6AiQPpcHXPDnqzfoHpwtwDxNJovd
-    - /ip4/192.168.12.93/tcp/9009/p2p/12D3KooWCepEJctQMZ7iCWs5VkdKYr1g95ZxCShRXGWvojJN5Zyb
+    - /ip4/172.31.32.91/tcp/9009/p2p/12D3KooWFaRMEjkxJjfRdRnEZm477YFgUWmezhA8xgw2WTQMDsoC
+    - /ip4/172.31.32.92/tcp/9009/p2p/12D3KooWJybswi9fFpjKwgnr6AiQPpcHXPDnqzfoHpwtwDxNJovd
+    - /ip4/172.31.32.93/tcp/9009/p2p/12D3KooWCepEJctQMZ7iCWs5VkdKYr1g95ZxCShRXGWvojJN5Zyb
   enableMDNS: true
+  listenWaitSeconds: 0
+  connectionWaitSeconds: 30
 tss:
   oldThreshold: 1
   threshold: 1
@@ -17,7 +21,8 @@ tss:
   newKeyId: "2"
   keysDir: /app/data/keys
   chainType: EVM
-  timeout: 300s
+  timeout: 300s # local test
+  localPartyDelay: 2s
   participants:
     - peerId: "12D3KooWFaRMEjkxJjfRdRnEZm477YFgUWmezhA8xgw2WTQMDsoC"
       key: 1
