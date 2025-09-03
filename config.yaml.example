@@ -34,6 +34,12 @@ doge:
   start_height: 0
   confirmations: 1
   network_type: "regtest"           # one of: mainnet | testnet | regtest
+  # Optional: specify watch addresses (preferred) or a base64-encoded public key to derive addresses
+  watch_addresses: []                # e.g. ["n46CVKhdq21FWm7fCwmtUZVadvEMPEDqE2"]
+  watch_pubkey_base64: ""           # e.g. "A1B2...=="
+  # Optional: deposit detection parameters
+  deposit_magic_bytes: ""           # hex string without or with 0x prefix, e.g. "feedbeef"
+  min_deposit_amount: 1000000        # in satoshis, default 1 DOGE
 
 scan:
   enabled: true
