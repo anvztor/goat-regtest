@@ -34,6 +34,12 @@ doge:
   start_height: 0
   confirmations: 1
   network_type: "regtest"           # one of: mainnet | testnet | regtest
+  # Optional: specify watch addresses (preferred) or a base64-encoded public key to derive addresses
+  watch_addresses: ["n46CVKhdq21FWm7fCwmtUZVadvEMPEDqE2"]                # e.g. ["n46CVKhdq21FWm7fCwmtUZVadvEMPEDqE2"]
+  watch_pubkey_base64: ""           # e.g. "A1B2...=="
+  # Optional: deposit detection parameters
+  deposit_magic_bytes: ""           # hex string without or with 0x prefix, e.g. "feedbeef"
+  min_deposit_amount: 1000000        # in satoshis, default 1 DOGE
 
 scan:
   enabled: true
@@ -46,9 +52,9 @@ consensus:
   rpc: "http://geth:8545"
   chain_id: 1337
   event_detection:
-    enabled: false
-    contract_bridge: "0x0000000000000000000000000000000000000000"
-    contract_entry_point: "0x0000000000000000000000000000000000000000"
+    enabled: true
+    contract_bridge: "0x4d82ad1aEB3ad8400A160cC091Bb695297be6074"
+    contract_entry_point: "0xc3fC084D2e1C35Eb3Bf3CB7c342fF51636a2dDcE"
     abi_path: "/app/data/abi.json"
     last_scanned_block: 0
     confirmation_blocks: 2

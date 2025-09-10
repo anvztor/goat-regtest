@@ -52,9 +52,9 @@ consensus:
   rpc: "http://geth:8545"
   chain_id: 1337
   event_detection:
-    enabled: false
-    contract_bridge: "0x0000000000000000000000000000000000000000"
-    contract_entry_point: "0x0000000000000000000000000000000000000000"
+    enabled: true
+    contract_bridge: "0x4d82ad1aEB3ad8400A160cC091Bb695297be6074"
+    contract_entry_point: "0xc3fC084D2e1C35Eb3Bf3CB7c342fF51636a2dDcE"
     abi_path: "/app/data/abi.json"
     last_scanned_block: 0
     confirmation_blocks: 2
