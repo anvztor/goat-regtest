@@ -4,7 +4,8 @@
 
 ### Start All-in-One Regtest
 ```
-make compose-init
+git submodule update --init --recursive   # fetch relay & contract code
+make compose-init   # requires forge & jq in PATH to build ABI artifacts
 docker compose up -d
 ```
 

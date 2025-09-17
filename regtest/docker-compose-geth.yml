@@ -47,7 +47,6 @@ services:
     command: 
       - |
         cd /app
-        git clone https://github.com/GOATNetwork/dogecoin-bridge-contract.git -b dev .
         forge install
         forge script script/Deploy.s.sol --rpc-url http://geth:8545 --broadcast --legacy
     depends_on:
@@ -77,7 +76,6 @@ services:
     command: 
       - |
         cd /app
-        git clone https://github.com/GOATNetwork/dogecoin-bridge-contract.git -b dev .
         forge install
         forge script script/EntryPointInit.sol --rpc-url http://geth:8545 --broadcast
     depends_on:

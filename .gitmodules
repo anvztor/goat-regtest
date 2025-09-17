@@ -4,3 +4,6 @@
 [submodule "submodule/tss"]
 	path = submodule/tss
 	url = https://github.com/GOATNetwork/tss.git
+[submodule "submodule/contracts"]
+	path = submodule/contracts
+	url = https://github.com/GOATNetwork/dogecoin-bridge-contract.git
