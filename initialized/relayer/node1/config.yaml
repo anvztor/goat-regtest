@@ -48,7 +48,7 @@ scan:
   range: 1000             # blocks per scan batch
 
 consensus:
-  enabled: false          # Set to true if integration with an EVM chain is required, then complete the fields below
+  enabled: true          # Set to true if integration with an EVM chain is required, then complete the fields below
   rpc: "http://geth:8545"
   chain_id: 1337
   event_detection:
