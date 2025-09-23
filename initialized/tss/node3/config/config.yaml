@@ -12,8 +12,8 @@ p2p:
     - /ip4/172.31.32.92/tcp/9009/p2p/12D3KooWQk9bNDztJu3Qy1Sy6SJpQXpJ4VbLxdXY9LHwWW6BA7zb
     # - /ip4/172.31.32.93/tcp/9009/p2p/12D3KooWT3ehGxkyzA2vhqfgjvNC3hUeQRQgvhYE5KVZftUjBKRg
   enableMDNS: false
-  listenWaitSeconds: 30
-  connectionWaitSeconds: 60
+  listenWaitSeconds: 0
+  connectionWaitSeconds: 30
 tss:
   oldThreshold: 1
   threshold: 1
