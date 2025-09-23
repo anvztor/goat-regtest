@@ -63,7 +63,7 @@ consensus:
 
 tss:
   enabled: true
-  url: "http://goat-network-tss-node1:8080"  # Each relayer node points to its dedicated TSS endpoint
+  url: "http://goat-network-tss-node1:8180"  # Each relayer node points to its dedicated TSS endpoint
   kdd: 1
   timeout: 60           # seconds
 

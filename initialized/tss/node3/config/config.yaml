@@ -1,18 +1,19 @@
 nodeId: node-3
-peerId: "12D3KooWCepEJctQMZ7iCWs5VkdKYr1g95ZxCShRXGWvojJN5Zyb"
-address: "0xcc00000000000000000000000000000000000003"
+peerId: "12D3KooWT3ehGxkyzA2vhqfgjvNC3hUeQRQgvhYE5KVZftUjBKRg"
+address: "0x3ae5b74dddd0c58afaa2cefa8b3ef3f35c2d6bb7"
 logLevel: debug
 http:
-  port: 8080
+  port: 8180
 p2p:
   listenAddr: /ip4/0.0.0.0/tcp/9009
+  externalAddr: /ip4/172.31.32.93/tcp/9009
   bootstrapPeers:
-    - /ip4/172.31.32.91/tcp/9009/p2p/12D3KooWFaRMEjkxJjfRdRnEZm477YFgUWmezhA8xgw2WTQMDsoC
-    - /ip4/172.31.32.92/tcp/9009/p2p/12D3KooWJybswi9fFpjKwgnr6AiQPpcHXPDnqzfoHpwtwDxNJovd
-    - /ip4/172.31.32.93/tcp/9009/p2p/12D3KooWCepEJctQMZ7iCWs5VkdKYr1g95ZxCShRXGWvojJN5Zyb
-  enableMDNS: true
-  listenWaitSeconds: 0
-  connectionWaitSeconds: 30
+    - /ip4/172.31.32.91/tcp/9009/p2p/12D3KooWFtfTU3LBnNaNpPSyWE3UDXw1NFyYZccMKtLYVqf9XmYH
+    - /ip4/172.31.32.92/tcp/9009/p2p/12D3KooWQk9bNDztJu3Qy1Sy6SJpQXpJ4VbLxdXY9LHwWW6BA7zb
+    # - /ip4/172.31.32.93/tcp/9009/p2p/12D3KooWT3ehGxkyzA2vhqfgjvNC3hUeQRQgvhYE5KVZftUjBKRg
+  enableMDNS: false
+  listenWaitSeconds: 30
+  connectionWaitSeconds: 60
 tss:
   oldThreshold: 1
   threshold: 1
@@ -21,15 +22,15 @@ tss:
   newKeyId: "2"
   keysDir: /app/data/keys
   chainType: EVM
-  timeout: 300s # local test
-  localPartyDelay: 2s
+  timeout: 300s
+  localPartyDelay: 10s
   participants:
-    - peerId: "12D3KooWFaRMEjkxJjfRdRnEZm477YFgUWmezhA8xgw2WTQMDsoC"
+    - peerId: "12D3KooWFtfTU3LBnNaNpPSyWE3UDXw1NFyYZccMKtLYVqf9XmYH"
       key: 1
       moniker: node-1
-    - peerId: "12D3KooWJybswi9fFpjKwgnr6AiQPpcHXPDnqzfoHpwtwDxNJovd"
+    - peerId: "12D3KooWQk9bNDztJu3Qy1Sy6SJpQXpJ4VbLxdXY9LHwWW6BA7zb"
       key: 2
       moniker: node-2
-    - peerId: "12D3KooWCepEJctQMZ7iCWs5VkdKYr1g95ZxCShRXGWvojJN5Zyb"
+    - peerId: "12D3KooWT3ehGxkyzA2vhqfgjvNC3hUeQRQgvhYE5KVZftUjBKRg"
       key: 3
       moniker: node-3

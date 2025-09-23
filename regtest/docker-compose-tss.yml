@@ -3,14 +3,14 @@ services:
     image: anvztor/tss:dev
     container_name: goat-network-tss-node1
     healthcheck:
-      test: [ "CMD", "wget", "--spider", "-q", "http://localhost:8080/api/v1/evm/address?kdd=1" ]
+      test: [ "CMD", "wget", "--spider", "-q", "http://localhost:8180/api/v1/evm/address?kdd=1" ]
       interval: 10s
       timeout: 5s
       retries: 5
     environment:
-      - SHARED_AES_KEY=8bf89ccc1c7f5925c38f5f908c14e627eb346e0761e4a6885e61ce9687cb4435
+      - SHARED_AES_KEY=3adafd7b6f7f722cb3d88ad5f6b59ff096facd412dfb7df130c9400f8c1559a5
     ports:
-      - "8081:8080" # http port
+      - "8081:8180" # http port
       - "9091:9009" # p2p port
     volumes:
       - ./data/tss/node1/data:/app/data
@@ -23,14 +23,14 @@ services:
     image: anvztor/tss:dev
     container_name: goat-network-tss-node2
     healthcheck:
-      test: [ "CMD", "wget", "--spider", "-q", "http://localhost:8080/api/v1/evm/address?kdd=1" ]
+      test: [ "CMD", "wget", "--spider", "-q", "http://localhost:8180/api/v1/evm/address?kdd=1" ]
       interval: 10s
       timeout: 5s
       retries: 5
     environment:
-      - SHARED_AES_KEY=dc655cab68cfcff6f253ff37f2fe6b1b86c8ee7f68d7b64bb8bd8f28d7a528f4
+      - SHARED_AES_KEY=daaa176a01c297855fb0055a4ba3771c73c554c8d4cd4c8ec14f1d59ffd8e0ba
     ports:
-      - "8082:8080" # http port
+      - "8082:8180" # http port
       - "9092:9009" # p2p port
     volumes:
       - ./data/tss/node2/data:/app/data
@@ -43,14 +43,14 @@ services:
     image: anvztor/tss:dev
     container_name: goat-network-tss-node3
     healthcheck:
-      test: [ "CMD", "wget", "--spider", "-q", "http://localhost:8080/api/v1/evm/address?kdd=1" ]
+      test: [ "CMD", "wget", "--spider", "-q", "http://localhost:8180/api/v1/evm/address?kdd=1" ]
       interval: 10s
       timeout: 5s
       retries: 5
     environment:
-      - SHARED_AES_KEY=ea29d2149f47887d2247cf5d9876373704e958affd1cdc25d17463b11aad9026
+      - SHARED_AES_KEY=33a6de2f05a899ab9b1efa61e0cbef624400ad388d364e1c7d598808c1963f6a
     ports:
-      - "8083:8080" # http port
+      - "8083:8180" # http port
       - "9093:9009" # p2p port
     volumes:
       - ./data/tss/node3/data:/app/data
