@@ -2,13 +2,13 @@
 # Copy this file to each node directory as config.yaml and adjust values as needed.
 
 log:
-  level: "info"         # debug|info|warn|error|fatal|panic
+  level: "debug"         # debug|info|warn|error|fatal|panic
 
 sqlite:
   folder: "/app/data"   # SQLite database folder inside the container (must match the volume mount in compose)
 
 gorm:
-  log_level: "info"      # silent|error|warn|info
+  log_level: "silent"      # silent|error|warn|info
   max_idle_conns: 10
   max_open_conns: 100
   conn_max_lifetime: 3600  # seconds
