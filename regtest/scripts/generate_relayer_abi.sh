@@ -19,7 +19,7 @@ if ! command -v jq >/dev/null 2>&1; then
   exit 1
 fi
 
-forge install --root "${FOUNDRY_PROJECT}" >/dev/null
+forge install --root "${FOUNDRY_PROJECT}" --no-git >/dev/null
 forge build --root "${FOUNDRY_PROJECT}" >/dev/null
 
 if [[ ! -f "${BRIDGE_ARTIFACT}" ]]; then
