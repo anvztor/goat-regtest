@@ -38,7 +38,7 @@ doge:
   watch_addresses: ["n46CVKhdq21FWm7fCwmtUZVadvEMPEDqE2"]                # e.g. ["n46CVKhdq21FWm7fCwmtUZVadvEMPEDqE2"]
   watch_pubkey_base64: ""           # e.g. "A1B2...=="
   # Optional: deposit detection parameters
-  deposit_magic_bytes: "0xdeadbeef"           # hex string without or with 0x prefix, e.g. "feedbeef"
+  deposit_magic_bytes: "0x47514556"           # hex string without or with 0x prefix, e.g. "0x47514556"
   min_deposit_amount: 1000000        # in satoshis, default 1 DOGE
 
 scan:
