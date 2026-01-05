@@ -31,6 +31,7 @@ doge:
   rpc_url: "dogecoin-node:22555"  # RPC endpoint of the Dogecoin node defined in compose
   rpc_user: "gigawallet"
   rpc_password: "gigawallet"
+  rpc_headers: {}                 # Optional extra RPC headers, e.g. {x-api-key: "t-..."}
   start_height: 0
   confirmations: 1
   network_type: "regtest"           # one of: mainnet | testnet | regtest

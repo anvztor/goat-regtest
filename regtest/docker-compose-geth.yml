@@ -16,8 +16,9 @@ services:
     command:
       - --dev
       - --http
-      - --http.api=personal,eth,net,web3
+      - --http.api=personal,eth,net,web3,txpool,debug,admin
       - --http.addr=0.0.0.0
+      - --http.corsdomain=*
       - --http.vhosts=*
       - --dev.period=1
     ports:
@@ -92,7 +93,14 @@ services:
       geth:
         condition: service_healthy
     entrypoint: ["geth", "attach"]
-    command: ["--exec", "eth.sendTransaction({from: eth.accounts[0], to: \"0x29cF29d4b2CD6Db07f6db43243e8E43fE3DC468e\", value: \"0x0DE0B6B3A7640000\"})", "http://geth:8545"]
+    command:
+      - "--exec"
+      - |
+        eth.sendTransaction({from: eth.accounts[0], to: "0x29cF29d4b2CD6Db07f6db43243e8E43fE3DC468e", value: "0x0DE0B6B3A7640000"});
+        eth.sendTransaction({from: eth.accounts[0], to: "0xE07dc2f6112E5B38237cb9620eA0075eF25e5E79", value: "0x0DE0B6B3A7640000"});
+        eth.sendTransaction({from: eth.accounts[0], to: "0x4E6588f5eb6D328ABB46df71C74D7031cC962C85", value: "0x0DE0B6B3A7640000"});
+        eth.sendTransaction({from: eth.accounts[0], to: "0xe0a189c72078AB9A4B0ebfcd3eEf46153392a152", value: "0x0DE0B6B3A7640000"});
+      - "http://geth:8545"
     networks:
       - goat_network
 
