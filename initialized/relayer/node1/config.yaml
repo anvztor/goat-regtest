@@ -28,7 +28,7 @@ http:
   port: 8080              # Must match the internal container port exposed in compose
 
 doge:
-  rpc_url: "dogecoin-node:22555"  # RPC endpoint of the Dogecoin node defined in compose
+  rpc_url: "http://dogecoin-node:22555"  # RPC endpoint of the Dogecoin node defined in compose
   rpc_user: "gigawallet"
   rpc_password: "gigawallet"
   rpc_headers: {}                 # Optional extra RPC headers, e.g. {x-api-key: "t-..."}
@@ -41,6 +41,13 @@ doge:
   # Optional: deposit detection parameters
   deposit_magic_bytes: "0x47514556"           # hex string without or with 0x prefix, e.g. "0x47514556"
   min_deposit_amount: 1000000        # in satoshis, default 1 DOGE
+
+withdraw:
+  enabled: true
+  mode: "local"                # local | fireblocks
+  change_address: "n46CVKhdq21FWm7fCwmtUZVadvEMPEDqE2"           # change address for withdrawals (must be in watch_addresses)
+  fee_rate: 1                  # reserved for future fee tuning
+  min_confirmations: 1          # minimum confirmations required before using UTXOs
 
 scan:
   enabled: true
