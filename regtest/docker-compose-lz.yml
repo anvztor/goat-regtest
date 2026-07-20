@@ -101,6 +101,28 @@ services:
     networks:
       - goat_network
 
+  # --- LayerZero OFT bridge frontend (submodule/bridge-fe) ---
+  # Served on :3005 to avoid clashing with the BTC-bridge FE on :3000.
+  # NOTE: full wiring to the regtest OFT endpoints still needs a regtest entry in
+  # submodule/bridge-fe/src/config/{env.ts,app.ts} (env enum is dev|staging|mainnet
+  # only) populated with the deployed GOATED/TestOFT addresses on chain A (31337)
+  # and chain B (48815), EIDs 90101/90102, and local RPC URLs. Those addresses are
+  # pending dev-bugfix's deploy; see _coord for the FE-config approach decision.
+  lz-bridge-fe:
+    build:
+      context: ../submodule/bridge-fe
+      dockerfile: Dockerfile
+    image: goat-bridge-fe:regtest
+    container_name: goat-regtest-lz-bridge-fe
+    environment:
+      - NODE_ENV=development
+      # Switch to `regtest` once a regtest env is added to src/config/env.ts+app.ts.
+      - NEXT_PUBLIC_ENVIRONMENT=${BRIDGE_FE_ENV:-development}
+    ports:
+      - 3005:3000
+    networks:
+      - goat_network
+
 networks:
   goat_network:
     external: true
