@@ -15,13 +15,11 @@ services:
         bitcoind -regtest -datadir=/home/bitcoin/.bitcoin -daemon -regtest=1 -rpcbind=0.0.0.0 -rpcallowip=0.0.0.0/0 -txindex=1 -reindex=1 -fallbackfee=0.01 -rpcuser=test -rpcpassword=test -discover=0 -server=1
         sleep 10
 
-        # Load wallet
-        bitcoin-wallet -regtest -wallet=demo create
-        mkdir -p /home/bitcoin/.bitcoin/regtest/wallets/demo/
-        cp /root/.bitcoin/regtest/wallets/demo/wallet.dat /home/bitcoin/.bitcoin/regtest/wallets/demo/wallet.dat
-        cd /home/bitcoin/.bitcoin/regtest/wallets/
-        chmod 777 -R demo/
-        bitcoin-cli -regtest -rpcuser=test -rpcpassword=test loadwallet demo
+        # Create/load wallet (idempotent). The pre-baked wallet.dat is "not in recognized
+        # format" on recent ruimarinho/bitcoin-core images, so create a fresh descriptor
+        # wallet instead of copying wallet.dat. loadwallet succeeds on restarts.
+        bitcoin-cli -regtest -rpcuser=test -rpcpassword=test loadwallet demo 2>/dev/null || \
+          bitcoin-cli -regtest -rpcuser=test -rpcpassword=test createwallet demo
         
         # Generate 199 blocks to get miner reward, execute only during initialization
         if [ $(bitcoin-cli -regtest -rpcuser=test -rpcpassword=test getblockcount) -le 199 ]; then
