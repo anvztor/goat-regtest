@@ -16,3 +16,6 @@
 [submodule "submodule/tss"]
 	path = submodule/tss
 	url = https://github.com/GOATNetwork/tss.git
+[submodule "submodule/bridge-fe"]
+	path = submodule/bridge-fe
+	url = https://github.com/GOATNetwork/goat-bridge-fe.git
