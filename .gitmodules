@@ -19,3 +19,4 @@
 [submodule "submodule/bridge-fe"]
 	path = submodule/bridge-fe
 	url = https://github.com/GOATNetwork/goat-bridge-fe.git
+	branch = regtest-config
